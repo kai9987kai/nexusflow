@@ -1,0 +1,110 @@
+{"tick": 0, "event": "web_tool_generate", "kind": "json_lab", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\web_tools\\01_json-lab.html", "suite": "lab_suite"}
+{"tick": 0, "event": "web_tool_generate", "kind": "regex_lab", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\web_tools\\02_regex-lab.html", "suite": "lab_suite"}
+{"tick": 0, "event": "web_tool_generate", "kind": "prompt_studio", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\web_tools\\03_prompt-studio.html", "suite": "lab_suite"}
+{"tick": 0, "event": "web_tool_generate", "kind": "interaction_lab", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\web_tools\\04_interaction-lab.html", "suite": "lab_suite"}
+{"tick": 0, "event": "web_tool_generate", "kind": "api_builder", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\web_tools\\05_api-builder.html", "suite": "lab_suite"}
+{"tick": 0, "event": "web_tool_generate", "kind": "suite_index", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\web_tools\\index.html", "suite": "lab_suite"}
+{"tick": 0, "event": "web_tool_suite", "preset": "lab", "count": 5}
+{"tick": 0, "event": "web_tool_generate", "kind": "api_builder", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\web_tools_live\\01_api-builder.html", "suite": "live_api_suite"}
+{"tick": 0, "event": "web_tool_generate", "kind": "mock_server_lab", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\web_tools_live\\02_mock-server-lab.html", "suite": "live_api_suite"}
+{"tick": 0, "event": "web_tool_generate", "kind": "websocket_lab", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\web_tools_live\\03_websocket-lab.html", "suite": "live_api_suite"}
+{"tick": 0, "event": "web_tool_generate", "kind": "interaction_lab", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\web_tools_live\\04_interaction-lab.html", "suite": "live_api_suite"}
+{"tick": 0, "event": "web_tool_generate", "kind": "json_lab", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\web_tools_live\\05_json-lab.html", "suite": "live_api_suite"}
+{"tick": 0, "event": "web_tool_generate", "kind": "suite_index", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\web_tools_live\\index.html", "suite": "live_api_suite"}
+{"tick": 0, "event": "web_tool_suite", "preset": "live_api", "count": 5}
+{"tick": 0, "event": "web_tool_generate", "kind": "interaction_lab", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\web_tools\\interaction_lab_plus.html"}
+{"tick": 0, "event": "web_tool_generate", "kind": "prompt_studio", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\web_tools\\prompt_studio_plus.html"}
+{"tick": 0, "event": "web_tool_generate", "kind": "mock_server_lab", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\web_tools_live\\mock_server_plus.html"}
+{"tick": 0, "event": "web_tool_generate", "kind": "websocket_lab", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\web_tools_live\\websocket_plus.html"}
+{"tick": 0, "event": "http_auth_preset_set", "name": "demo_local", "headers": ["Authorization", "X-App"]}
+{"tick": 0, "event": "export_http_history_json", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\http_history.json", "count": 0}
+{"tick": 0, "event": "load_3d", "asset": "terrain_tile", "kind": "obj"}
+{"tick": 0, "event": "load_3d", "asset": "drone", "kind": "gltf"}
+{"tick": 0, "event": "scene_new", "scene": "ecosystem_lab", "template": "lab"}
+{"tick": 0, "event": "scene_add", "scene": "ecosystem_lab", "asset": "terrain_tile"}
+{"tick": 0, "event": "scene_add", "scene": "ecosystem_lab", "asset": "drone"}
+{"tick": 0, "event": "scene_light", "scene": "ecosystem_lab", "kind": "hemisphere"}
+{"tick": 0, "event": "scene_camera", "scene": "ecosystem_lab"}
+{"tick": 0, "event": "fusion_sim", "run": "tokamak_demo", "steps": 80, "q": 0.00215}
+{"tick": 0, "event": "fusion_sim_multizone", "run": "tokamak_multizone", "steps": 90, "q": 0.00194}
+{"tick": 0, "event": "protein_fold_sim", "run": "albumin_fragment", "steps": 140, "best_energy": -5.0}
+{"tick": 0, "event": "protein_fold_sim_3d", "run": "albumin_fragment_3d", "steps": 130, "best_energy": -9.2}
+{"tick": 1, "event": "scout_found_food"}
+{"tick": 1, "event": "scout_found_food"}
+{"tick": 2, "event": "scout_found_food"}
+{"tick": 3, "event": "grazer_ate"}
+{"tick": 3, "event": "grazer_ate"}
+{"tick": 3, "event": "grazer_ate"}
+{"tick": 3, "event": "grazer_ate"}
+{"tick": 3, "event": "grazer_ate"}
+{"tick": 3, "event": "grazer_ate"}
+{"tick": 3, "event": "grazer_ate"}
+{"tick": 3, "event": "grazer_ate"}
+{"tick": 4, "event": "scout_found_food"}
+{"tick": 5, "event": "scout_found_food"}
+{"tick": 6, "event": "grazer_ate"}
+{"tick": 6, "event": "grazer_ate"}
+{"tick": 6, "event": "grazer_ate"}
+{"tick": 6, "event": "grazer_ate"}
+{"tick": 6, "event": "grazer_ate"}
+{"tick": 6, "event": "grazer_ate"}
+{"tick": 6, "event": "grazer_ate"}
+{"tick": 6, "event": "grazer_ate"}
+{"tick": 7, "event": "scout_found_food"}
+{"tick": 8, "event": "scout_found_food"}
+{"tick": 9, "event": "grazer_ate"}
+{"tick": 9, "event": "grazer_ate"}
+{"tick": 9, "event": "grazer_ate"}
+{"tick": 9, "event": "grazer_ate"}
+{"tick": 9, "event": "grazer_ate"}
+{"tick": 9, "event": "grazer_ate"}
+{"tick": 9, "event": "grazer_ate"}
+{"tick": 9, "event": "grazer_ate"}
+{"tick": 10, "event": "scout_found_food"}
+{"tick": 11, "event": "scout_found_food"}
+{"tick": 12, "event": "grazer_ate"}
+{"tick": 12, "event": "grazer_ate"}
+{"tick": 12, "event": "grazer_ate"}
+{"tick": 12, "event": "grazer_ate"}
+{"tick": 12, "event": "grazer_ate"}
+{"tick": 12, "event": "grazer_ate"}
+{"tick": 12, "event": "grazer_ate"}
+{"tick": 12, "event": "grazer_ate"}
+{"tick": 12, "event": "scout_found_food"}
+{"tick": 13, "event": "scout_found_food"}
+{"tick": 14, "event": "scout_found_food"}
+{"tick": 15, "event": "grazer_ate"}
+{"tick": 15, "event": "grazer_ate"}
+{"tick": 15, "event": "grazer_ate"}
+{"tick": 15, "event": "grazer_ate"}
+{"tick": 15, "event": "grazer_ate"}
+{"tick": 15, "event": "grazer_ate"}
+{"tick": 15, "event": "grazer_ate"}
+{"tick": 15, "event": "grazer_ate"}
+{"tick": 15, "event": "scout_found_food"}
+{"tick": 18, "event": "grazer_ate"}
+{"tick": 18, "event": "grazer_ate"}
+{"tick": 18, "event": "grazer_ate"}
+{"tick": 18, "event": "grazer_ate"}
+{"tick": 18, "event": "grazer_ate"}
+{"tick": 18, "event": "grazer_ate"}
+{"tick": 18, "event": "grazer_ate"}
+{"tick": 18, "event": "grazer_ate"}
+{"tick": 19, "event": "scout_found_food"}
+{"tick": 20, "event": "scout_found_food"}
+{"tick": 20, "event": "bench:main_sim", "duration_ms": 20.8}
+{"tick": 20, "event": "torch_train:brain:synthetic_env"}
+{"tick": 20, "event": "export_scene_json", "scene": "ecosystem_lab", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\eco_scene.json"}
+{"tick": 20, "event": "export_scene_html", "scene": "ecosystem_lab", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\eco_scene.html"}
+{"tick": 20, "event": "export_fusion_json", "run": "tokamak_demo", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\fusion_demo.json"}
+{"tick": 20, "event": "export_fusion_html", "run": "tokamak_multizone", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\fusion_multizone.html"}
+{"tick": 20, "event": "export_fusion_json", "run": "tokamak_multizone", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\fusion_multizone.json"}
+{"tick": 20, "event": "export_protein_json", "run": "albumin_fragment", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\protein_demo.json"}
+{"tick": 20, "event": "export_protein_json", "run": "albumin_fragment_3d", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\protein_demo_3d.json"}
+{"tick": 20, "event": "export_protein_html", "run": "albumin_fragment_3d", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\protein_demo_3d.html"}
+{"tick": 20, "event": "torch_export:brain"}
+{"tick": 20, "event": "win_powershell", "ok": true}
+{"tick": 20, "event": "win_cmd", "ok": true}
+{"tick": 20, "event": "assert_ok"}
+{"tick": 20, "event": "win_processes_json", "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\processes_top5.json"}
+{"tick": 20, "event": "postflight_start", "payload": {"run_id": "a2026eb0-b226-46d6-830b-be7b34c5b8d9"}}

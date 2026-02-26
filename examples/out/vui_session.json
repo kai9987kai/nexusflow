@@ -1,0 +1,72 @@
+{
+  "ops": [
+    {
+      "time": "2026-02-26T17:03:01.629333+00:00",
+      "type": "vui_profile_set",
+      "ok": true,
+      "profile": "assistant"
+    },
+    {
+      "time": "2026-02-26T17:03:01.629385+00:00",
+      "type": "vui_log",
+      "ok": true,
+      "role": "user",
+      "transcript": "open calculator and search settings",
+      "meta": null
+    },
+    {
+      "time": "2026-02-26T17:03:01.629427+00:00",
+      "type": "vui_say",
+      "ok": true,
+      "dry_run": true,
+      "text": "NexusFlow Windows automation dry run ready.",
+      "chars": 43,
+      "voice": null,
+      "rate": 0,
+      "volume": 80,
+      "profile": "assistant"
+    },
+    {
+      "time": "2026-02-26T17:03:04.462813+00:00",
+      "type": "vui_list_voices",
+      "ok": true,
+      "count": 2
+    }
+  ],
+  "profiles": {
+    "assistant": {
+      "name": "assistant",
+      "voice": null,
+      "rate": 0,
+      "volume": 80,
+      "style": null
+    }
+  },
+  "transcripts": [
+    {
+      "time": "2026-02-26T17:03:01.629385+00:00",
+      "role": "user",
+      "text": "open calculator and search settings",
+      "meta": null
+    }
+  ],
+  "voices_cache": {
+    "ok": true,
+    "voices": [
+      {
+        "Name": "Microsoft Hazel Desktop",
+        "Culture": "en-GB",
+        "Gender": "Female",
+        "Age": "Adult",
+        "Description": "Microsoft Hazel Desktop - English (Great Britain)"
+      },
+      {
+        "Name": "Microsoft Zira Desktop",
+        "Culture": "en-US",
+        "Gender": "Female",
+        "Age": "Adult",
+        "Description": "Microsoft Zira Desktop - English (United States)"
+      }
+    ]
+  }
+}

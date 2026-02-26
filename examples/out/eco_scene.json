@@ -1,0 +1,200 @@
+{
+  "project": "EcoAIDashboard",
+  "scene": {
+    "name": "ecosystem_lab",
+    "template": "lab",
+    "background": "#0b1020",
+    "nodes": [
+      {
+        "name": "terrain",
+        "asset": "terrain_tile",
+        "kind": "mesh",
+        "transform": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            2.0,
+            1.0,
+            2.0
+          ]
+        },
+        "asset_kind": "obj",
+        "asset_stats": {
+          "vertices": 4,
+          "normals": 1,
+          "uvs": 4,
+          "faces": 1,
+          "triangles_estimate": 2,
+          "objects": [
+            "TerrainTile"
+          ],
+          "groups": [],
+          "materials": [
+            "Grass"
+          ],
+          "mtllibs": []
+        },
+        "bounds": {
+          "min": [
+            -1.0,
+            0.0,
+            -1.0
+          ],
+          "max": [
+            1.0,
+            0.0,
+            1.0
+          ],
+          "size": [
+            2.0,
+            0.0,
+            2.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "name": "scout_drone",
+        "asset": "drone",
+        "kind": "mesh",
+        "transform": {
+          "position": [
+            1.5,
+            1.2,
+            -0.8
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "asset_kind": "gltf",
+        "asset_stats": {
+          "scenes": 1,
+          "nodes": 1,
+          "meshes": 1,
+          "primitives": 1,
+          "materials": 1,
+          "animations": 0,
+          "accessors": 0,
+          "buffers": 0,
+          "bufferViews": 0,
+          "images": 0
+        },
+        "bounds": null
+      }
+    ],
+    "lights": [
+      {
+        "kind": "hemisphere",
+        "intensity": 0.9,
+        "color": "#8ec5ff"
+      }
+    ],
+    "camera": {
+      "position": [
+        4.5,
+        3.0,
+        8.0
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fov": 52.0
+    },
+    "created_at": "2026-02-26T15:37:19.664168+00:00"
+  },
+  "assets": {
+    "terrain_tile": {
+      "name": "terrain_tile",
+      "kind": "obj",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\assets\\terrain_tile.obj",
+      "bytes": 211,
+      "stats": {
+        "vertices": 4,
+        "normals": 1,
+        "uvs": 4,
+        "faces": 1,
+        "triangles_estimate": 2,
+        "objects": [
+          "TerrainTile"
+        ],
+        "groups": [],
+        "materials": [
+          "Grass"
+        ],
+        "mtllibs": []
+      },
+      "bounds": {
+        "min": [
+          -1.0,
+          0.0,
+          -1.0
+        ],
+        "max": [
+          1.0,
+          0.0,
+          1.0
+        ],
+        "size": [
+          2.0,
+          0.0,
+          2.0
+        ],
+        "center": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "loaded_at": "2026-02-26T15:37:19.663698+00:00"
+    },
+    "drone": {
+      "name": "drone",
+      "kind": "gltf",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\assets\\drone.gltf",
+      "bytes": 499,
+      "asset": {
+        "version": "2.0",
+        "generator": "NexusFlow sample"
+      },
+      "stats": {
+        "scenes": 1,
+        "nodes": 1,
+        "meshes": 1,
+        "primitives": 1,
+        "materials": 1,
+        "animations": 0,
+        "accessors": 0,
+        "buffers": 0,
+        "bufferViews": 0,
+        "images": 0
+      },
+      "default_scene": 0,
+      "extensions_used": [],
+      "extensions_required": [],
+      "loaded_at": "2026-02-26T15:37:19.664139+00:00"
+    }
+  },
+  "tick": 20
+}

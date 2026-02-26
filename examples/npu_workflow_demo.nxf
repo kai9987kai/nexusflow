@@ -1,0 +1,45 @@
+project "NPUWorkflowDemo" {
+  model tiny_npu {
+    backend = "npu";
+    inputs = 4;
+    hidden = 12;
+    outputs = 2;
+    layers = 2;
+    lr = 0.005;
+  }
+
+  dataset tiny_ds {
+    samples = 48;
+    inputs = 4;
+    outputs = 2;
+    task = "classification";
+    batch_size = 8;
+  }
+
+  metric npu_profiles = npu_profile_count();
+  metric npu_providers = npu_provider_count();
+  metric npu_runs = npu_run_count();
+  metric npu_probes = npu_probe_count();
+  metric npu_plan_device = get(npu_last_plan(), "execution_device", "");
+  metric npu_plan_provider = get(get(npu_last_plan(), "provider", {}), "name", "");
+  metric npu_bench_real = get(npu_last_benchmark(), "real_run", false);
+  metric npu_bench_device = get(npu_last_benchmark(), "device", "");
+  metric npu_last_train_ok = get(npu_last_run(), "ok", false);
+  metric npu_last_train_device = get(get(npu_last_run(), "training_run", {}), "device", "");
+
+  pipeline build {
+    step npu_profile("edge_int8", {
+      "precision": "int8",
+      "optimize_for": "latency",
+      "preferred_device": "npu",
+      "quantize": true,
+      "batch_size": 4
+    });
+    step npu_probe_json("out/npu_probe.json");
+    step npu_plan_json("out/npu_plan.json", "tiny_npu", {"profile": "edge_int8", "dataset": "tiny_ds", "task": "training"});
+    step npu_benchmark_json("out/npu_benchmark.json", "tiny_npu", {"profile": "edge_int8", "iterations": 3, "size": 32});
+    step npu_runtime_export_json("out/npu_runtime.json");
+    step npu_torch_train("tiny_npu", "tiny_ds", 1, {"profile": "edge_int8", "device": "npu", "lr": 0.004});
+    step export_json("out/npu_workflow_snapshot.json");
+  }
+}

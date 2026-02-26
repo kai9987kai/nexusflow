@@ -1,0 +1,264 @@
+{
+  "ops": [
+    {
+      "time": "2026-02-26T16:37:06.785922+00:00",
+      "type": "resource_set_limits",
+      "applied": {
+        "max_sim_workers": 2,
+        "max_pipeline_workers": 2,
+        "events_max": 120,
+        "lang_runs_max": 40,
+        "resource_ops_max": 50
+      }
+    },
+    {
+      "time": "2026-02-26T16:37:06.822670+00:00",
+      "type": "resource_snapshot",
+      "label": "start",
+      "host": {
+        "time": "2026-02-26T16:37:06.787399+00:00",
+        "label": "start",
+        "host": {
+          "is_windows": true,
+          "platform": "Windows-11-10.0.26200-SP0",
+          "system": "Windows",
+          "release": "11",
+          "version": "10.0.26200",
+          "hostname": "Nolans-TechSupp",
+          "cwd": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples"
+        },
+        "cpu_count": 8,
+        "active_threads": 1,
+        "process_memory_bytes": null,
+        "process_time_sec": 1.875,
+        "disk_out_dir": {
+          "total": 254292258816,
+          "used": 213599342592,
+          "free": 40692916224
+        }
+      },
+      "runtime": {
+        "time": "2026-02-26T16:37:06.821915+00:00",
+        "label": "start",
+        "tick": 0,
+        "events": 1,
+        "http_ops": 0,
+        "windows_ops": 0,
+        "sqlite_ops": 0,
+        "archive_ops": 0,
+        "lang_runs": 0,
+        "thread_events": 0,
+        "benchmarks": 0,
+        "training_runs": 0,
+        "web_tools": 0,
+        "assets3d": 0,
+        "scenes3d": 0,
+        "resource_limits": {
+          "events_max": 120,
+          "http_ops_max": 100,
+          "windows_ops_max": 50,
+          "sqlite_ops_max": 150,
+          "archive_ops_max": 100,
+          "lang_runs_max": 40,
+          "thread_events_max": 50,
+          "resource_ops_max": 50,
+          "max_sim_workers": 2,
+          "max_pipeline_workers": 2
+        },
+        "out_dir": {
+          "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples",
+          "exists": true,
+          "is_file": false,
+          "files": 2,
+          "dirs": 3,
+          "bytes": 10267
+        }
+      }
+    },
+    {
+      "time": "2026-02-26T16:37:06.898216+00:00",
+      "type": "resource_gc",
+      "collected": 138,
+      "generation": null,
+      "before_memory_bytes": null,
+      "after_memory_bytes": null,
+      "duration_ms": 40.15,
+      "gc_counts": [
+        34,
+        0,
+        0
+      ]
+    },
+    {
+      "time": "2026-02-26T16:37:06.898363+00:00",
+      "type": "resource_trim",
+      "before": {
+        "events": 26,
+        "http_ops": 0,
+        "windows_ops": 0,
+        "sqlite_ops": 0,
+        "archive_ops": 0,
+        "lang_runs": 1,
+        "thread_events": 3
+      },
+      "after": {
+        "events": 26,
+        "http_ops": 0,
+        "windows_ops": 0,
+        "sqlite_ops": 0,
+        "archive_ops": 0,
+        "lang_runs": 1,
+        "thread_events": 3
+      },
+      "caps": {
+        "events": 80,
+        "http_ops": 100,
+        "windows_ops": 50,
+        "sqlite_ops": 150,
+        "archive_ops": 100,
+        "lang_runs": 20,
+        "thread_events": 50
+      }
+    },
+    {
+      "time": "2026-02-26T16:37:06.899692+00:00",
+      "type": "resource_snapshot",
+      "label": "end",
+      "host": {
+        "time": "2026-02-26T16:37:06.898966+00:00",
+        "label": "end",
+        "host": {
+          "is_windows": true,
+          "platform": "Windows-11-10.0.26200-SP0",
+          "system": "Windows",
+          "release": "11",
+          "version": "10.0.26200",
+          "hostname": "Nolans-TechSupp",
+          "cwd": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples"
+        },
+        "cpu_count": 8,
+        "active_threads": 1,
+        "process_memory_bytes": null,
+        "process_time_sec": 1.96875,
+        "disk_out_dir": {
+          "total": 254292258816,
+          "used": 213599281152,
+          "free": 40692977664
+        }
+      },
+      "runtime": {
+        "time": "2026-02-26T16:37:06.899069+00:00",
+        "label": "end",
+        "tick": 4,
+        "events": 27,
+        "http_ops": 0,
+        "windows_ops": 0,
+        "sqlite_ops": 0,
+        "archive_ops": 0,
+        "lang_runs": 1,
+        "thread_events": 3,
+        "benchmarks": 0,
+        "training_runs": 0,
+        "web_tools": 0,
+        "assets3d": 0,
+        "scenes3d": 0,
+        "resource_limits": {
+          "events_max": 120,
+          "http_ops_max": 100,
+          "windows_ops_max": 50,
+          "sqlite_ops_max": 150,
+          "archive_ops_max": 100,
+          "lang_runs_max": 40,
+          "thread_events_max": 50,
+          "resource_ops_max": 50,
+          "max_sim_workers": 2,
+          "max_pipeline_workers": 2
+        },
+        "out_dir": {
+          "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples",
+          "exists": true,
+          "is_file": false,
+          "files": 2,
+          "dirs": 3,
+          "bytes": 10267
+        }
+      }
+    }
+  ],
+  "limits": {
+    "events_max": 120,
+    "http_ops_max": 100,
+    "windows_ops_max": 50,
+    "sqlite_ops_max": 150,
+    "archive_ops_max": 100,
+    "lang_runs_max": 40,
+    "thread_events_max": 50,
+    "resource_ops_max": 50,
+    "max_sim_workers": 2,
+    "max_pipeline_workers": 2
+  },
+  "latest": {
+    "time": "2026-02-26T16:37:06.899692+00:00",
+    "type": "resource_snapshot",
+    "label": "end",
+    "host": {
+      "time": "2026-02-26T16:37:06.898966+00:00",
+      "label": "end",
+      "host": {
+        "is_windows": true,
+        "platform": "Windows-11-10.0.26200-SP0",
+        "system": "Windows",
+        "release": "11",
+        "version": "10.0.26200",
+        "hostname": "Nolans-TechSupp",
+        "cwd": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples"
+      },
+      "cpu_count": 8,
+      "active_threads": 1,
+      "process_memory_bytes": null,
+      "process_time_sec": 1.96875,
+      "disk_out_dir": {
+        "total": 254292258816,
+        "used": 213599281152,
+        "free": 40692977664
+      }
+    },
+    "runtime": {
+      "time": "2026-02-26T16:37:06.899069+00:00",
+      "label": "end",
+      "tick": 4,
+      "events": 27,
+      "http_ops": 0,
+      "windows_ops": 0,
+      "sqlite_ops": 0,
+      "archive_ops": 0,
+      "lang_runs": 1,
+      "thread_events": 3,
+      "benchmarks": 0,
+      "training_runs": 0,
+      "web_tools": 0,
+      "assets3d": 0,
+      "scenes3d": 0,
+      "resource_limits": {
+        "events_max": 120,
+        "http_ops_max": 100,
+        "windows_ops_max": 50,
+        "sqlite_ops_max": 150,
+        "archive_ops_max": 100,
+        "lang_runs_max": 40,
+        "thread_events_max": 50,
+        "resource_ops_max": 50,
+        "max_sim_workers": 2,
+        "max_pipeline_workers": 2
+      },
+      "out_dir": {
+        "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples",
+        "exists": true,
+        "is_file": false,
+        "files": 2,
+        "dirs": 3,
+        "bytes": 10267
+      }
+    }
+  }
+}

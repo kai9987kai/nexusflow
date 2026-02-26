@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "left_path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a",
+  "right_path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_b",
+  "recursive": true,
+  "hash": true,
+  "added": [
+    "new.txt"
+  ],
+  "removed": [],
+  "changed": [
+    {
+      "path": "alpha.txt",
+      "left_bytes": 8,
+      "right_bytes": 8,
+      "left_hash": "1045d9a162b576bcb4a38b125e9b58e110c0445714f1e07d14b8603577e34569",
+      "right_hash": "52d7699527d76745b185e927b3fcc86601b9eabdf06bb685c9771974d1cfd767"
+    }
+  ],
+  "same_count": 1,
+  "left_count": 2,
+  "right_count": 3,
+  "changed_count": 1,
+  "added_count": 1,
+  "removed_count": 0
+}

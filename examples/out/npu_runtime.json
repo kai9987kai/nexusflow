@@ -1,0 +1,72 @@
+{
+  "project": "NPUWorkflowDemo",
+  "generated_at": "2026-02-26T18:38:42.243551+00:00",
+  "probe": {
+    "host": {
+      "is_windows": true,
+      "platform": "Windows-11-10.0.26200-SP0",
+      "system": "Windows",
+      "release": "11",
+      "version": "10.0.26200",
+      "hostname": "Nolans-TechSupp",
+      "cwd": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples"
+    },
+    "cpu_count": 8,
+    "pytorch_available": true,
+    "torch": {
+      "available": true,
+      "cuda": {
+        "available": false,
+        "count": 0,
+        "devices": []
+      },
+      "mps": {
+        "available": false
+      },
+      "xpu": {
+        "available": false,
+        "count": 0
+      }
+    },
+    "npu": {
+      "available": false,
+      "detected": [],
+      "env_hints": [],
+      "providers": [
+        {
+          "name": "cpu_fallback",
+          "available": true,
+          "source": "fallback"
+        }
+      ]
+    },
+    "recommended_device": "cpu",
+    "deep": false,
+    "probed_at": "2026-02-26T18:38:42.122494+00:00"
+  },
+  "providers": [
+    {
+      "name": "cpu_fallback",
+      "available": true,
+      "source": "fallback"
+    }
+  ],
+  "profiles": {
+    "edge_int8": {
+      "name": "edge_int8",
+      "precision": "int8",
+      "optimize_for": "latency",
+      "preferred_provider": null,
+      "preferred_device": "npu",
+      "batch_size": 4,
+      "quantize": true,
+      "threads": null,
+      "notes": null,
+      "updated_at": "2026-02-26T18:38:42.090719+00:00"
+    }
+  },
+  "runtime_hints": {
+    "recommended_device": "cpu",
+    "env": {}
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a",
+  "exists": true,
+  "is_file": false,
+  "files": [
+    {
+      "path": "alpha.txt",
+      "bytes": 8,
+      "mtime": 1772130525.539174,
+      "hash": "1045d9a162b576bcb4a38b125e9b58e110c0445714f1e07d14b8603577e34569",
+      "algo": "sha256"
+    },
+    {
+      "path": "sub/beta.txt",
+      "bytes": 4,
+      "mtime": 1772130525.540358,
+      "hash": "f44e64e75f3948e9f73f8dfa94721c4ce8cbb4f265c4790c702b2d41cfbf2753",
+      "algo": "sha256"
+    }
+  ],
+  "count": 2,
+  "bytes": 12,
+  "hash": true,
+  "algo": "sha256",
+  "recursive": true,
+  "truncated": false,
+  "duration_ms": 0.83
+}

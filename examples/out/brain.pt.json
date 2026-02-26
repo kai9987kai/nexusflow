@@ -1,0 +1,17 @@
+{
+  "project": "EcoAIDashboard",
+  "model_name": "brain",
+  "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\brain.pt",
+  "tick": 20,
+  "spec": {
+    "kind": "mlp",
+    "inputs": 6,
+    "outputs": 3,
+    "hidden": [
+      32,
+      32
+    ],
+    "activation": "relu",
+    "backend": "pytorch"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "project": "EcoAIDashboard",
+  "tick": 20,
+  "state": {
+    "day": 20,
+    "food": 102,
+    "weather": "mild",
+    "alert_level": 0,
+    "host_name": "Nolans-TechSupp",
+    "host_platform": "Windows-11-10.0.26200-SP0",
+    "run_id": "a2026eb0-b226-46d6-830b-be7b34c5b8d9",
+    "meta": {
+      "kind": "ecosim",
+      "version": 3
+    },
+    "primary_scene": "ecosystem_lab",
+    "peptide_seq": "MKWVTFISLLFLFSSAYS"
+  },
+  "channels": {
+    "alerts": [
+      "food_ping",
+      "food_ping",
+      "food_ping",
+      "food_ping",
+      "food_ping",
+      "food_ping",
+      "food_ping",
+      "food_ping",
+      "food_ping",
+      "food_ping",
+      "food_ping",
+      "food_ping",
+      "food_ping",
+      "food_ping",
+      "food_ping"
+    ]
+  }
+}

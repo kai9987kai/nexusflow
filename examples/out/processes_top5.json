@@ -1,0 +1,46 @@
+{
+  "ok": true,
+  "top_n": 5,
+  "processes": [
+    {
+      "Name": "Antigravity",
+      "Id": 13040,
+      "CPU": 1157.734375,
+      "WS": 584314880,
+      "PM": 905211904,
+      "Path": "C:\\Users\\kai99\\AppData\\Local\\Programs\\Antigravity\\Antigravity.exe"
+    },
+    {
+      "Name": "Antigravity",
+      "Id": 24728,
+      "CPU": 1074.5625,
+      "WS": 428257280,
+      "PM": 700424192,
+      "Path": "C:\\Users\\kai99\\AppData\\Local\\Programs\\Antigravity\\Antigravity.exe"
+    },
+    {
+      "Name": "Antigravity",
+      "Id": 1968,
+      "CPU": 732.125,
+      "WS": 207278080,
+      "PM": 317349888,
+      "Path": "C:\\Users\\kai99\\AppData\\Local\\Programs\\Antigravity\\Antigravity.exe"
+    },
+    {
+      "Name": "chrome",
+      "Id": 17124,
+      "CPU": 489.15625,
+      "WS": 668348416,
+      "PM": 731398144,
+      "Path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+    },
+    {
+      "Name": "AdskIdentityManager",
+      "Id": 18720,
+      "CPU": 363.09375,
+      "WS": 15511552,
+      "PM": 36945920,
+      "Path": "C:\\Program Files\\Autodesk\\AdskIdentityManager\\1.16.5.1\\AdskIdentityManager.exe"
+    }
+  ]
+}

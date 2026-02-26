@@ -1,0 +1,495 @@
+{
+  "project": "PackagingIntegrityDemo",
+  "config": {},
+  "state": {},
+  "metrics": {
+    "alpha_hash": "1045d9a162b576bcb4a38b125e9b58e110c0445714f1e07d14b8603577e34569",
+    "alpha_hash_ok": true,
+    "manifest_a_count": 2,
+    "diff_changed": 1,
+    "diff_added": 1,
+    "archives_total": 1,
+    "archives_ops": 2
+  },
+  "tick": 0,
+  "models": {},
+  "datasets": {},
+  "assets3d": {},
+  "scenes3d": {},
+  "web_tools": {},
+  "fusion_runs": {},
+  "protein_runs": {},
+  "channels": {},
+  "agents": {},
+  "agent_summary": {},
+  "events": [
+    {
+      "tick": 0,
+      "event": "file_hash",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a\\alpha.txt",
+      "algo": "sha256"
+    },
+    {
+      "tick": 0,
+      "event": "hash_file_json",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a\\alpha.txt",
+      "out": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\alpha_hash.json"
+    },
+    {
+      "tick": 0,
+      "event": "dir_manifest",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a",
+      "count": 2
+    },
+    {
+      "tick": 0,
+      "event": "dir_manifest_json",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a",
+      "out": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\workspace_a_manifest.json"
+    },
+    {
+      "tick": 0,
+      "event": "dir_manifest",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a",
+      "count": 2
+    },
+    {
+      "tick": 0,
+      "event": "dir_manifest",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_b",
+      "count": 3
+    },
+    {
+      "tick": 0,
+      "event": "dir_diff",
+      "added": 1,
+      "removed": 0,
+      "changed": 1
+    },
+    {
+      "tick": 0,
+      "event": "dir_diff_json",
+      "out": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\workspace_diff.json",
+      "ok": true
+    },
+    {
+      "tick": 0,
+      "event": "tar_pack",
+      "archive": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\workspace_a.tar.gz",
+      "entries": 2
+    },
+    {
+      "tick": 0,
+      "event": "tar_unpack",
+      "archive": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\workspace_a.tar.gz",
+      "entries": 2
+    },
+    {
+      "tick": 0,
+      "event": "file_hash",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a\\alpha.txt",
+      "algo": "sha256"
+    },
+    {
+      "tick": 0,
+      "event": "file_hash",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a\\alpha.txt",
+      "algo": "sha256"
+    },
+    {
+      "tick": 0,
+      "event": "file_hash",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a\\alpha.txt",
+      "algo": "sha256"
+    },
+    {
+      "tick": 0,
+      "event": "file_hash_verify",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a\\alpha.txt",
+      "algo": "sha256",
+      "match": true
+    },
+    {
+      "tick": 0,
+      "event": "dir_manifest",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a",
+      "count": 2
+    },
+    {
+      "tick": 0,
+      "event": "dir_manifest",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a",
+      "count": 2
+    },
+    {
+      "tick": 0,
+      "event": "dir_manifest",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_b",
+      "count": 3
+    },
+    {
+      "tick": 0,
+      "event": "dir_diff",
+      "added": 1,
+      "removed": 0,
+      "changed": 1
+    },
+    {
+      "tick": 0,
+      "event": "dir_manifest",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a",
+      "count": 2
+    },
+    {
+      "tick": 0,
+      "event": "dir_manifest",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_b",
+      "count": 3
+    },
+    {
+      "tick": 0,
+      "event": "dir_diff",
+      "added": 1,
+      "removed": 0,
+      "changed": 1
+    }
+  ],
+  "training_runs": [],
+  "benchmarks": [],
+  "threading": {
+    "simulate_calls": 0,
+    "simulate_mt_calls": 0,
+    "pipeline_parallel_calls": 0,
+    "max_workers_seen": 1,
+    "thread_events": []
+  },
+  "pytorch": {
+    "available": true,
+    "import_error": null,
+    "trained_models": [],
+    "exports": []
+  },
+  "python_ml": {
+    "trained_models": [],
+    "exports": [],
+    "models": {}
+  },
+  "languages": {
+    "modules": {},
+    "runs": []
+  },
+  "windows": {
+    "host": {
+      "is_windows": true,
+      "platform": "Windows-11-10.0.26200-SP0",
+      "system": "Windows",
+      "release": "11",
+      "version": "10.0.26200",
+      "hostname": "Nolans-TechSupp",
+      "cwd": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples"
+    },
+    "ops": []
+  },
+  "vui": {
+    "ops": [],
+    "profiles": {},
+    "voices_cache": null,
+    "transcripts": []
+  },
+  "http": {
+    "ops": [],
+    "auth_presets": {},
+    "mock_servers": {}
+  },
+  "sqlite": {
+    "ops": [],
+    "databases": {}
+  },
+  "archives": {
+    "ops": [
+      {
+        "time": "2026-02-26T18:28:45.553602+00:00",
+        "op": "tar_pack",
+        "ok": true,
+        "archive": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\workspace_a.tar.gz",
+        "source": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a",
+        "entries": 2,
+        "bytes": 12,
+        "mode": "w:gz"
+      },
+      {
+        "time": "2026-02-26T18:28:45.566419+00:00",
+        "op": "tar_unpack",
+        "ok": true,
+        "archive": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\workspace_a.tar.gz",
+        "dest": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\unpacked_workspace_a",
+        "entries": 2,
+        "bytes": 12
+      }
+    ],
+    "archives": {
+      "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\workspace_a.tar.gz": {
+        "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\workspace_a.tar.gz",
+        "ops": 2,
+        "last_op": "tar_unpack",
+        "last_status": "ok",
+        "entries": 2,
+        "bytes": 12
+      }
+    }
+  },
+  "resources": {
+    "ops": [],
+    "limits": {
+      "events_max": 500,
+      "http_ops_max": 100,
+      "windows_ops_max": 50,
+      "vui_ops_max": 100,
+      "sqlite_ops_max": 150,
+      "archive_ops_max": 100,
+      "lang_runs_max": 100,
+      "thread_events_max": 50,
+      "resource_ops_max": 120,
+      "process_ops_max": 120,
+      "wifi_ops_max": 80,
+      "npu_probes_max": 30,
+      "photo_ops_max": 80,
+      "graph_ops_max": 120,
+      "convert_ops_max": 120,
+      "iso_ops_max": 40,
+      "github_ops_max": 60,
+      "max_sim_workers": null,
+      "max_pipeline_workers": null
+    }
+  },
+  "processes": {
+    "ops": [],
+    "profiles": {},
+    "managed": {}
+  },
+  "wifi": {
+    "ops": [],
+    "interfaces": [],
+    "profiles": [],
+    "last_scan": null
+  },
+  "npu": {
+    "last_probe": null,
+    "probes": []
+  },
+  "photos": {
+    "ops": [],
+    "images": {}
+  },
+  "graphs": {
+    "ops": [],
+    "graphs": {}
+  },
+  "conversion": {
+    "ops": [
+      {
+        "time": "2026-02-26T18:28:45.544853+00:00",
+        "type": "file_hash",
+        "ok": true,
+        "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a\\alpha.txt",
+        "algo": "sha256",
+        "digest": "1045d9a162b576bcb4a38b125e9b58e110c0445714f1e07d14b8603577e34569",
+        "bytes": 8,
+        "duration_ms": 2.05
+      },
+      {
+        "time": "2026-02-26T18:28:45.546578+00:00",
+        "type": "dir_manifest",
+        "ok": true,
+        "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a",
+        "exists": true,
+        "is_file": false,
+        "count": 2,
+        "bytes": 12,
+        "hash": true,
+        "algo": "sha256",
+        "recursive": true,
+        "truncated": false,
+        "duration_ms": 0.83
+      },
+      {
+        "time": "2026-02-26T18:28:45.547993+00:00",
+        "type": "dir_manifest",
+        "ok": true,
+        "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a",
+        "exists": true,
+        "is_file": false,
+        "count": 2,
+        "bytes": 12,
+        "hash": true,
+        "algo": "sha256",
+        "recursive": true,
+        "truncated": false,
+        "duration_ms": 0.63
+      },
+      {
+        "time": "2026-02-26T18:28:45.550513+00:00",
+        "type": "dir_manifest",
+        "ok": true,
+        "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_b",
+        "exists": true,
+        "is_file": false,
+        "count": 3,
+        "bytes": 15,
+        "hash": true,
+        "algo": "sha256",
+        "recursive": true,
+        "truncated": false,
+        "duration_ms": 2.36
+      },
+      {
+        "time": "2026-02-26T18:28:45.550581+00:00",
+        "type": "dir_diff",
+        "ok": true,
+        "added": 1,
+        "removed": 0,
+        "changed": 1
+      },
+      {
+        "time": "2026-02-26T18:28:45.567031+00:00",
+        "type": "file_hash",
+        "ok": true,
+        "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a\\alpha.txt",
+        "algo": "sha256",
+        "digest": "1045d9a162b576bcb4a38b125e9b58e110c0445714f1e07d14b8603577e34569",
+        "bytes": 8,
+        "duration_ms": 0.12
+      },
+      {
+        "time": "2026-02-26T18:28:45.567339+00:00",
+        "type": "file_hash",
+        "ok": true,
+        "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a\\alpha.txt",
+        "algo": "sha256",
+        "digest": "1045d9a162b576bcb4a38b125e9b58e110c0445714f1e07d14b8603577e34569",
+        "bytes": 8,
+        "duration_ms": 0.07
+      },
+      {
+        "time": "2026-02-26T18:28:45.567610+00:00",
+        "type": "file_hash",
+        "ok": true,
+        "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a\\alpha.txt",
+        "algo": "sha256",
+        "digest": "1045d9a162b576bcb4a38b125e9b58e110c0445714f1e07d14b8603577e34569",
+        "bytes": 8,
+        "duration_ms": 0.06
+      },
+      {
+        "time": "2026-02-26T18:28:45.567634+00:00",
+        "type": "file_hash_verify",
+        "ok": true,
+        "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a\\alpha.txt",
+        "algo": "sha256",
+        "match": true
+      },
+      {
+        "time": "2026-02-26T18:28:45.568240+00:00",
+        "type": "dir_manifest",
+        "ok": true,
+        "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a",
+        "exists": true,
+        "is_file": false,
+        "count": 2,
+        "bytes": 12,
+        "hash": false,
+        "algo": null,
+        "recursive": true,
+        "truncated": false,
+        "duration_ms": 0.48
+      },
+      {
+        "time": "2026-02-26T18:28:45.568894+00:00",
+        "type": "dir_manifest",
+        "ok": true,
+        "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a",
+        "exists": true,
+        "is_file": false,
+        "count": 2,
+        "bytes": 12,
+        "hash": true,
+        "algo": "sha256",
+        "recursive": true,
+        "truncated": false,
+        "duration_ms": 0.5
+      },
+      {
+        "time": "2026-02-26T18:28:45.569666+00:00",
+        "type": "dir_manifest",
+        "ok": true,
+        "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_b",
+        "exists": true,
+        "is_file": false,
+        "count": 3,
+        "bytes": 15,
+        "hash": true,
+        "algo": "sha256",
+        "recursive": true,
+        "truncated": false,
+        "duration_ms": 0.64
+      },
+      {
+        "time": "2026-02-26T18:28:45.569709+00:00",
+        "type": "dir_diff",
+        "ok": true,
+        "added": 1,
+        "removed": 0,
+        "changed": 1
+      },
+      {
+        "time": "2026-02-26T18:28:45.570504+00:00",
+        "type": "dir_manifest",
+        "ok": true,
+        "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_a",
+        "exists": true,
+        "is_file": false,
+        "count": 2,
+        "bytes": 12,
+        "hash": true,
+        "algo": "sha256",
+        "recursive": true,
+        "truncated": false,
+        "duration_ms": 0.65
+      },
+      {
+        "time": "2026-02-26T18:28:45.571885+00:00",
+        "type": "dir_manifest",
+        "ok": true,
+        "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\workspace_b",
+        "exists": true,
+        "is_file": false,
+        "count": 3,
+        "bytes": 15,
+        "hash": true,
+        "algo": "sha256",
+        "recursive": true,
+        "truncated": false,
+        "duration_ms": 1.0
+      },
+      {
+        "time": "2026-02-26T18:28:45.571928+00:00",
+        "type": "dir_diff",
+        "ok": true,
+        "added": 1,
+        "removed": 0,
+        "changed": 1
+      }
+    ]
+  },
+  "iso": {
+    "ops": [],
+    "last": null,
+    "images": {},
+    "tools": {}
+  },
+  "github_local": {
+    "ops": [],
+    "last_report": null
+  },
+  "unsupported_steps": []
+}

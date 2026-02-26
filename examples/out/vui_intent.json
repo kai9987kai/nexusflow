@@ -1,0 +1,9 @@
+{
+  "text": "open calculator and search settings",
+  "intent": "search_settings",
+  "score": 4.5,
+  "matched": [
+    "search\\s+settings",
+    "settings"
+  ]
+}

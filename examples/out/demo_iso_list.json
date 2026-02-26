@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "image": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\demo.iso",
+  "mode": "source_manifest",
+  "tool": null,
+  "entries": [
+    {
+      "path": "readme.txt",
+      "bytes": 18,
+      "is_dir": false
+    },
+    {
+      "path": "sub/info.txt",
+      "bytes": 11,
+      "is_dir": false
+    }
+  ],
+  "count": 2,
+  "bytes": 29,
+  "truncated": false
+}

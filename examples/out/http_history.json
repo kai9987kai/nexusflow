@@ -1,0 +1,11 @@
+{
+  "project": "EcoAIDashboard",
+  "tick": 0,
+  "ops": [],
+  "auth_presets": {
+    "demo_local": {
+      "Authorization": "Bearer local-demo",
+      "X-App": "EcoAIDashboard"
+    }
+  }
+}

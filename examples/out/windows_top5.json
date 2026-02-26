@@ -1,0 +1,41 @@
+{
+  "ok": true,
+  "top_n": 5,
+  "windows": [
+    {
+      "Name": "Antigravity",
+      "Id": 24304,
+      "MainWindowTitle": "New folder (5) - Antigravity - Codex Diff",
+      "MainWindowHandle": 1181340,
+      "Path": "C:\\Users\\kai99\\AppData\\Local\\Programs\\Antigravity\\Antigravity.exe"
+    },
+    {
+      "Name": "chrome",
+      "Id": 16932,
+      "MainWindowTitle": "(447) Caught Kissing in Uniform: Will She Be Expelled from the Royal Navy? | Royal Navy School - YouTube - Google Chrome",
+      "MainWindowHandle": 197694,
+      "Path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+    },
+    {
+      "Name": "SystemSettings",
+      "Id": 3564,
+      "MainWindowTitle": "Settings",
+      "MainWindowHandle": 460460,
+      "Path": "C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe"
+    },
+    {
+      "Name": "TextInputHost",
+      "Id": 8544,
+      "MainWindowTitle": "Windows Input Experience",
+      "MainWindowHandle": 394130,
+      "Path": "C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe"
+    },
+    {
+      "Name": "XboxPcApp",
+      "Id": 20972,
+      "MainWindowTitle": "Xbox",
+      "MainWindowHandle": 67406,
+      "Path": "C:\\Program Files\\WindowsApps\\Microsoft.GamingApp_2602.1001.5.0_arm64__8wekyb3d8bbwe\\XboxPcApp.exe"
+    }
+  ]
+}

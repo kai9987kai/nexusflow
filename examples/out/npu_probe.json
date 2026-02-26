@@ -1,0 +1,43 @@
+{
+  "host": {
+    "is_windows": true,
+    "platform": "Windows-11-10.0.26200-SP0",
+    "system": "Windows",
+    "release": "11",
+    "version": "10.0.26200",
+    "hostname": "Nolans-TechSupp",
+    "cwd": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples"
+  },
+  "cpu_count": 8,
+  "pytorch_available": true,
+  "torch": {
+    "available": true,
+    "cuda": {
+      "available": false,
+      "count": 0,
+      "devices": []
+    },
+    "mps": {
+      "available": false
+    },
+    "xpu": {
+      "available": false,
+      "count": 0
+    }
+  },
+  "npu": {
+    "available": false,
+    "detected": [],
+    "env_hints": [],
+    "providers": [
+      {
+        "name": "cpu_fallback",
+        "available": true,
+        "source": "fallback"
+      }
+    ]
+  },
+  "recommended_device": "cpu",
+  "deep": false,
+  "probed_at": "2026-02-26T18:38:42.122494+00:00"
+}

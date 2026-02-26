@@ -1,0 +1,17 @@
+project "IsoToolsDemo" {
+  metric iso_images = iso_count();
+  metric iso_ops = iso_op_count();
+  metric iso_label = get(iso_info("demo.iso"), "label", "");
+  metric iso_manifest_files = get(iso_info("demo.iso"), "manifest_count", 0);
+  metric iso_builder = get(get(iso_tool_info(), "selected", {}), "build", null);
+  metric archive_ops = archive_op_count();
+
+  pipeline build {
+    step write_text("stage/readme.txt", "NexusFlow ISO demo");
+    step write_text("stage/sub/info.txt", "nested file");
+    step iso_build("stage", "out/demo.iso", {"label": "NEXUSISO", "dry_run": true});
+    step iso_list_json("out/demo.iso", "out/demo_iso_list.json", {"prefer_source_manifest": true});
+    step iso_extract("out/demo.iso", "out/extracted_demo", {"dry_run": true});
+    step export_json("out/iso_demo_snapshot.json");
+  }
+}

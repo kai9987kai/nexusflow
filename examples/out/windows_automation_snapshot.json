@@ -1,0 +1,401 @@
+{
+  "project": "WindowsAutomationDryRun",
+  "config": {},
+  "state": {},
+  "metrics": {
+    "win_ops": 9,
+    "vui_ops": 4,
+    "mouse_x": 435,
+    "mouse_y": 822,
+    "screen_w": 1464,
+    "screen_h": 976,
+    "fg_title": "(447) Caught Kissing in Uniform: Will She Be Expelled from the Royal Navy? | Royal Navy School - YouTube - Google Chrome",
+    "fg_ok": true,
+    "win_list_count": 5,
+    "vui_supported_tts": true,
+    "vui_intent_name": "search_settings"
+  },
+  "tick": 0,
+  "models": {},
+  "datasets": {},
+  "assets3d": {},
+  "scenes3d": {},
+  "web_tools": {},
+  "fusion_runs": {},
+  "protein_runs": {},
+  "channels": {},
+  "agents": {},
+  "agent_summary": {},
+  "events": [
+    {
+      "tick": 0,
+      "event": "vui_profile_set",
+      "profile": "assistant"
+    },
+    {
+      "tick": 0,
+      "event": "vui_log",
+      "role": "user",
+      "chars": 35
+    },
+    {
+      "tick": 0,
+      "event": "vui_say",
+      "dry_run": true,
+      "chars": 43
+    },
+    {
+      "tick": 0,
+      "event": "vui_voices_json",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\vui_voices.json",
+      "ok": true
+    },
+    {
+      "tick": 0,
+      "event": "win_windows_json",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\windows_top5.json"
+    },
+    {
+      "tick": 0,
+      "event": "win_input_sequence",
+      "ok": true,
+      "count": 6,
+      "dry_run": true
+    },
+    {
+      "tick": 0,
+      "event": "vui_export_json",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\vui_session.json"
+    }
+  ],
+  "training_runs": [],
+  "benchmarks": [],
+  "threading": {
+    "simulate_calls": 0,
+    "simulate_mt_calls": 0,
+    "pipeline_parallel_calls": 0,
+    "max_workers_seen": 1,
+    "thread_events": []
+  },
+  "pytorch": {
+    "available": true,
+    "import_error": null,
+    "trained_models": [],
+    "exports": []
+  },
+  "python_ml": {
+    "trained_models": [],
+    "exports": [],
+    "models": {}
+  },
+  "languages": {
+    "modules": {},
+    "runs": []
+  },
+  "windows": {
+    "host": {
+      "is_windows": true,
+      "platform": "Windows-11-10.0.26200-SP0",
+      "system": "Windows",
+      "release": "11",
+      "version": "10.0.26200",
+      "hostname": "Nolans-TechSupp",
+      "cwd": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples"
+    },
+    "ops": [
+      {
+        "time": "2026-02-26T17:03:04.462688+00:00",
+        "type": "powershell",
+        "script": "Add-Type -AssemblyName System.Speech; $s = New-Object System.Speech.Synthesis.SpeechSynthesizer; $v = $s.GetInstalledVoices() | ForEach-Object {   $vi = $_.VoiceInfo;   $culture = $null; if($vi.Culture){ $culture = $vi.Culture.Name };   [pscustomobject]@{     Name = $vi.Name;     Culture = $culture;     Gender = [string]$vi.Gender;     Age = [string]$vi.Age;     Description = $vi.Description   } }; $v | ConvertTo-Json -Depth 4",
+        "ok": true,
+        "returncode": 0,
+        "stdout": "[\n    {\n        \"Name\":  \"Microsoft Hazel Desktop\",\n        \"Culture\":  \"en-GB\",\n        \"Gender\":  \"Female\",\n        \"Age\":  \"Adult\",\n        \"Description\":  \"Microsoft Hazel Desktop - English (Great Britain)\"\n    },\n    {\n        \"Name\":  \"Microsoft Zira Desktop\",\n        \"Culture\":  \"en-US\",\n        \"Gender\":  \"Female\",\n        \"Age\":  \"Adult\",\n        \"Description\":  \"Microsoft Zira Desktop - English (United States)\"\n    }\n]\n",
+        "stderr": "",
+        "duration_ms": 2832.91
+      },
+      {
+        "time": "2026-02-26T17:03:06.758733+00:00",
+        "type": "powershell",
+        "script": "Get-Process | Where-Object { $_.MainWindowHandle -ne 0 -and $_.MainWindowTitle -and $_.MainWindowTitle.Trim().Length -gt 0 } | Sort-Object -Property ProcessName,Id | Select-Object -First 5 Name,Id,MainWindowTitle,MainWindowHandle,Path | ConvertTo-Json -Depth 4",
+        "ok": true,
+        "returncode": 0,
+        "stdout": "[\n    {\n        \"Name\":  \"Antigravity\",\n        \"Id\":  24304,\n        \"MainWindowTitle\":  \"New folder (5) - Antigravity - Codex Diff\",\n        \"MainWindowHandle\":  1181340,\n        \"Path\":  \"C:\\\\Users\\\\kai99\\\\AppData\\\\Local\\\\Programs\\\\Antigravity\\\\Antigravity.exe\"\n    },\n    {\n        \"Name\":  \"chrome\",\n        \"Id\":  16932,\n        \"MainWindowTitle\":  \"(447) Caught Kissing in Uniform: Will She Be Expelled from the Royal Navy? | Royal Navy School - YouTube - Google Chrome\",\n        \"MainWindowHandle\":  197694,\n        \"Path\":  \"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\"\n    },\n    {\n        \"Name\":  \"SystemSettings\",\n        \"Id\":  3564,\n        \"MainWindowTitle\":  \"Settings\",\n        \"MainWindowHandle\":  460460,\n        \"Path\":  \"C:\\\\Windows\\\\ImmersiveControlPanel\\\\SystemSettings.exe\"\n    },\n    {\n        \"Name\":  \"TextInputHost\",\n        \"Id\":  8544,\n        \"MainWindowTitle\":  \"Windows Input Experience\",\n        \"MainWindowHandle\":  394130,\n        \"Path\":  \"C:\\\\Windows\\\\SystemApps\\\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\\\TextInputHost.exe\"\n    },\n    {\n        \"Name\":  \"XboxPcApp\",\n        \"Id\":  20972,\n        \"MainWindowTitle\":  \"Xbox\",\n        \"MainWindowHandle\":  67406,\n        \"Path\":  \"C:\\\\Program Files\\\\WindowsApps\\\\Microsoft.GamingApp_2602.1001.5.0_arm64__8wekyb3d8bbwe\\\\XboxPcApp.exe\"\n    }\n]\n",
+        "stderr": "",
+        "duration_ms": 2292.81
+      },
+      {
+        "time": "2026-02-26T17:03:06.758905+00:00",
+        "type": "win_windows_list",
+        "ok": true,
+        "top_n": 5,
+        "count": 5
+      },
+      {
+        "time": "2026-02-26T17:03:06.759878+00:00",
+        "type": "win_windows_json",
+        "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\windows_top5.json",
+        "top_n": 5,
+        "ok": true
+      },
+      {
+        "time": "2026-02-26T17:03:06.760290+00:00",
+        "type": "win_input_sequence",
+        "ok": true,
+        "dry_run": true,
+        "count": 6
+      },
+      {
+        "time": "2026-02-26T17:03:09.154452+00:00",
+        "type": "powershell",
+        "script": "\nAdd-Type -TypeDefinition @\"\nusing System;\nusing System.Runtime.InteropServices;\nusing System.Text;\npublic static class NFWinFg {\n  [DllImport(\"user32.dll\")] public static extern IntPtr GetForegroundWindow();\n  [DllImport(\"user32.dll\", CharSet=CharSet.Unicode)] public static extern int GetWindowTextLength(IntPtr hWnd);\n  [DllImport(\"user32.dll\", CharSet=CharSet.Unicode)] public static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);\n  [DllImport(\"user32.dll\", CharSet=CharSet.Unicode)] public static extern int GetClassName(IntPtr hWnd, StringBuilder text, int count);\n  [DllImport(\"user32.dll\")] public static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint pid);\n}\n\"@ -ErrorAction SilentlyContinue | Out-Null\n$h = [NFWinFg]::GetForegroundWindow()\nif ($h -eq [IntPtr]::Zero) { [pscustomobject]@{ ok = $false; reason = 'no_foreground' } | ConvertTo-Json -Depth 4; exit 0 }\n$len = [NFWinFg]::GetWindowTextLength($h)\n$sb = New-Object System.Text.StringBuilder ([Math]::Max(4, $len + 2))\n[void][NFWinFg]::GetWindowText($h, $sb, $sb.Capacity)\n$csb = New-Object System.Text.StringBuilder 260\n[void][NFWinFg]::GetClassName($h, $csb, $csb.Capacity)\n[uint32]$procId = 0\n[void][NFWinFg]::GetWindowThreadProcessId($h, [ref]$procId)\n$pname = $null\ntry { $pname = (Get-Process -Id $procId -ErrorAction Stop).ProcessName } catch {}\n[pscustomobject]@{\n  ok = $true\n  handle = [int64]$h\n  title = $sb.ToString()\n  class = $csb.ToString()\n  pid = [int]$procId\n  process = $pname\n} | ConvertTo-Json -Depth 4\n",
+        "ok": true,
+        "returncode": 0,
+        "stdout": "{\n    \"ok\":  true,\n    \"handle\":  197694,\n    \"title\":  \"(447) Caught Kissing in Uniform: Will She Be Expelled from the Royal Navy? | Royal Navy School - YouTube - Google Chrome\",\n    \"class\":  \"Chrome_WidgetWin_1\",\n    \"pid\":  16932,\n    \"process\":  \"chrome\"\n}\n",
+        "stderr": "",
+        "duration_ms": 2394.03
+      },
+      {
+        "time": "2026-02-26T17:03:09.154522+00:00",
+        "type": "win_foreground_window",
+        "ok": true,
+        "title": "(447) Caught Kissing in Uniform: Will She Be Expelled from the Royal Navy? | Royal Navy School - YouTube - Google Chrome"
+      },
+      {
+        "time": "2026-02-26T17:03:11.161357+00:00",
+        "type": "powershell",
+        "script": "Add-Type -AssemblyName System.Windows.Forms; $p = [System.Windows.Forms.Cursor]::Position; [pscustomobject]@{ ok = $true; x = [int]$p.X; y = [int]$p.Y } | ConvertTo-Json -Compress",
+        "ok": true,
+        "returncode": 0,
+        "stdout": "{\"ok\":true,\"x\":435,\"y\":822}\n",
+        "stderr": "",
+        "duration_ms": 2005.66
+      },
+      {
+        "time": "2026-02-26T17:03:11.161446+00:00",
+        "type": "win_mouse_pos",
+        "ok": true,
+        "x": 435,
+        "y": 822
+      },
+      {
+        "time": "2026-02-26T17:03:13.026080+00:00",
+        "type": "powershell",
+        "script": "Add-Type -AssemblyName System.Windows.Forms; $p = [System.Windows.Forms.Cursor]::Position; [pscustomobject]@{ ok = $true; x = [int]$p.X; y = [int]$p.Y } | ConvertTo-Json -Compress",
+        "ok": true,
+        "returncode": 0,
+        "stdout": "{\"ok\":true,\"x\":435,\"y\":822}\n",
+        "stderr": "",
+        "duration_ms": 1855.79
+      },
+      {
+        "time": "2026-02-26T17:03:13.026217+00:00",
+        "type": "win_mouse_pos",
+        "ok": true,
+        "x": 435,
+        "y": 822
+      },
+      {
+        "time": "2026-02-26T17:03:14.856798+00:00",
+        "type": "powershell",
+        "script": "Add-Type -AssemblyName System.Windows.Forms; $p = [System.Windows.Forms.Cursor]::Position; [pscustomobject]@{ ok = $true; x = [int]$p.X; y = [int]$p.Y } | ConvertTo-Json -Compress",
+        "ok": true,
+        "returncode": 0,
+        "stdout": "{\"ok\":true,\"x\":435,\"y\":822}\n",
+        "stderr": "",
+        "duration_ms": 1830.44
+      },
+      {
+        "time": "2026-02-26T17:03:14.856938+00:00",
+        "type": "win_mouse_pos",
+        "ok": true,
+        "x": 435,
+        "y": 822
+      },
+      {
+        "time": "2026-02-26T17:03:16.864752+00:00",
+        "type": "powershell",
+        "script": "Add-Type -AssemblyName System.Windows.Forms; $b = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds; [pscustomobject]@{ ok = $true; width = [int]$b.Width; height = [int]$b.Height; x = [int]$b.X; y = [int]$b.Y } | ConvertTo-Json -Compress",
+        "ok": true,
+        "returncode": 0,
+        "stdout": "{\"ok\":true,\"width\":1464,\"height\":976,\"x\":0,\"y\":0}\n",
+        "stderr": "",
+        "duration_ms": 2007.67
+      },
+      {
+        "time": "2026-02-26T17:03:16.864975+00:00",
+        "type": "win_screen_size",
+        "ok": true,
+        "width": 1464,
+        "height": 976
+      },
+      {
+        "time": "2026-02-26T17:03:18.702037+00:00",
+        "type": "powershell",
+        "script": "Add-Type -AssemblyName System.Windows.Forms; $b = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds; [pscustomobject]@{ ok = $true; width = [int]$b.Width; height = [int]$b.Height; x = [int]$b.X; y = [int]$b.Y } | ConvertTo-Json -Compress",
+        "ok": true,
+        "returncode": 0,
+        "stdout": "{\"ok\":true,\"width\":1464,\"height\":976,\"x\":0,\"y\":0}\n",
+        "stderr": "",
+        "duration_ms": 1836.96
+      },
+      {
+        "time": "2026-02-26T17:03:18.702194+00:00",
+        "type": "win_screen_size",
+        "ok": true,
+        "width": 1464,
+        "height": 976
+      },
+      {
+        "time": "2026-02-26T17:03:20.996934+00:00",
+        "type": "powershell",
+        "script": "\nAdd-Type -TypeDefinition @\"\nusing System;\nusing System.Runtime.InteropServices;\nusing System.Text;\npublic static class NFWinFg {\n  [DllImport(\"user32.dll\")] public static extern IntPtr GetForegroundWindow();\n  [DllImport(\"user32.dll\", CharSet=CharSet.Unicode)] public static extern int GetWindowTextLength(IntPtr hWnd);\n  [DllImport(\"user32.dll\", CharSet=CharSet.Unicode)] public static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);\n  [DllImport(\"user32.dll\", CharSet=CharSet.Unicode)] public static extern int GetClassName(IntPtr hWnd, StringBuilder text, int count);\n  [DllImport(\"user32.dll\")] public static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint pid);\n}\n\"@ -ErrorAction SilentlyContinue | Out-Null\n$h = [NFWinFg]::GetForegroundWindow()\nif ($h -eq [IntPtr]::Zero) { [pscustomobject]@{ ok = $false; reason = 'no_foreground' } | ConvertTo-Json -Depth 4; exit 0 }\n$len = [NFWinFg]::GetWindowTextLength($h)\n$sb = New-Object System.Text.StringBuilder ([Math]::Max(4, $len + 2))\n[void][NFWinFg]::GetWindowText($h, $sb, $sb.Capacity)\n$csb = New-Object System.Text.StringBuilder 260\n[void][NFWinFg]::GetClassName($h, $csb, $csb.Capacity)\n[uint32]$procId = 0\n[void][NFWinFg]::GetWindowThreadProcessId($h, [ref]$procId)\n$pname = $null\ntry { $pname = (Get-Process -Id $procId -ErrorAction Stop).ProcessName } catch {}\n[pscustomobject]@{\n  ok = $true\n  handle = [int64]$h\n  title = $sb.ToString()\n  class = $csb.ToString()\n  pid = [int]$procId\n  process = $pname\n} | ConvertTo-Json -Depth 4\n",
+        "ok": true,
+        "returncode": 0,
+        "stdout": "{\n    \"ok\":  true,\n    \"handle\":  197694,\n    \"title\":  \"(447) Caught Kissing in Uniform: Will She Be Expelled from the Royal Navy? | Royal Navy School - YouTube - Google Chrome\",\n    \"class\":  \"Chrome_WidgetWin_1\",\n    \"pid\":  16932,\n    \"process\":  \"chrome\"\n}\n",
+        "stderr": "",
+        "duration_ms": 2294.6
+      },
+      {
+        "time": "2026-02-26T17:03:20.997035+00:00",
+        "type": "win_foreground_window",
+        "ok": true,
+        "title": "(447) Caught Kissing in Uniform: Will She Be Expelled from the Royal Navy? | Royal Navy School - YouTube - Google Chrome"
+      },
+      {
+        "time": "2026-02-26T17:03:23.143877+00:00",
+        "type": "powershell",
+        "script": "\nAdd-Type -TypeDefinition @\"\nusing System;\nusing System.Runtime.InteropServices;\nusing System.Text;\npublic static class NFWinFg {\n  [DllImport(\"user32.dll\")] public static extern IntPtr GetForegroundWindow();\n  [DllImport(\"user32.dll\", CharSet=CharSet.Unicode)] public static extern int GetWindowTextLength(IntPtr hWnd);\n  [DllImport(\"user32.dll\", CharSet=CharSet.Unicode)] public static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);\n  [DllImport(\"user32.dll\", CharSet=CharSet.Unicode)] public static extern int GetClassName(IntPtr hWnd, StringBuilder text, int count);\n  [DllImport(\"user32.dll\")] public static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint pid);\n}\n\"@ -ErrorAction SilentlyContinue | Out-Null\n$h = [NFWinFg]::GetForegroundWindow()\nif ($h -eq [IntPtr]::Zero) { [pscustomobject]@{ ok = $false; reason = 'no_foreground' } | ConvertTo-Json -Depth 4; exit 0 }\n$len = [NFWinFg]::GetWindowTextLength($h)\n$sb = New-Object System.Text.StringBuilder ([Math]::Max(4, $len + 2))\n[void][NFWinFg]::GetWindowText($h, $sb, $sb.Capacity)\n$csb = New-Object System.Text.StringBuilder 260\n[void][NFWinFg]::GetClassName($h, $csb, $csb.Capacity)\n[uint32]$procId = 0\n[void][NFWinFg]::GetWindowThreadProcessId($h, [ref]$procId)\n$pname = $null\ntry { $pname = (Get-Process -Id $procId -ErrorAction Stop).ProcessName } catch {}\n[pscustomobject]@{\n  ok = $true\n  handle = [int64]$h\n  title = $sb.ToString()\n  class = $csb.ToString()\n  pid = [int]$procId\n  process = $pname\n} | ConvertTo-Json -Depth 4\n",
+        "ok": true,
+        "returncode": 0,
+        "stdout": "{\n    \"ok\":  true,\n    \"handle\":  197694,\n    \"title\":  \"(447) Caught Kissing in Uniform: Will She Be Expelled from the Royal Navy? | Royal Navy School - YouTube - Google Chrome\",\n    \"class\":  \"Chrome_WidgetWin_1\",\n    \"pid\":  16932,\n    \"process\":  \"chrome\"\n}\n",
+        "stderr": "",
+        "duration_ms": 2146.75
+      },
+      {
+        "time": "2026-02-26T17:03:23.143983+00:00",
+        "type": "win_foreground_window",
+        "ok": true,
+        "title": "(447) Caught Kissing in Uniform: Will She Be Expelled from the Royal Navy? | Royal Navy School - YouTube - Google Chrome"
+      },
+      {
+        "time": "2026-02-26T17:03:25.427877+00:00",
+        "type": "powershell",
+        "script": "Get-Process | Where-Object { $_.MainWindowHandle -ne 0 -and $_.MainWindowTitle -and $_.MainWindowTitle.Trim().Length -gt 0 } | Sort-Object -Property ProcessName,Id | Select-Object -First 5 Name,Id,MainWindowTitle,MainWindowHandle,Path | ConvertTo-Json -Depth 4",
+        "ok": true,
+        "returncode": 0,
+        "stdout": "[\n    {\n        \"Name\":  \"Antigravity\",\n        \"Id\":  24304,\n        \"MainWindowTitle\":  \"New folder (5) - Antigravity - Codex Diff\",\n        \"MainWindowHandle\":  1181340,\n        \"Path\":  \"C:\\\\Users\\\\kai99\\\\AppData\\\\Local\\\\Programs\\\\Antigravity\\\\Antigravity.exe\"\n    },\n    {\n        \"Name\":  \"chrome\",\n        \"Id\":  16932,\n        \"MainWindowTitle\":  \"(447) Caught Kissing in Uniform: Will She Be Expelled from the Royal Navy? | Royal Navy School - YouTube - Google Chrome\",\n        \"MainWindowHandle\":  197694,\n        \"Path\":  \"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\"\n    },\n    {\n        \"Name\":  \"SystemSettings\",\n        \"Id\":  3564,\n        \"MainWindowTitle\":  \"Settings\",\n        \"MainWindowHandle\":  460460,\n        \"Path\":  \"C:\\\\Windows\\\\ImmersiveControlPanel\\\\SystemSettings.exe\"\n    },\n    {\n        \"Name\":  \"TextInputHost\",\n        \"Id\":  8544,\n        \"MainWindowTitle\":  \"Windows Input Experience\",\n        \"MainWindowHandle\":  394130,\n        \"Path\":  \"C:\\\\Windows\\\\SystemApps\\\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\\\TextInputHost.exe\"\n    },\n    {\n        \"Name\":  \"XboxPcApp\",\n        \"Id\":  20972,\n        \"MainWindowTitle\":  \"Xbox\",\n        \"MainWindowHandle\":  67406,\n        \"Path\":  \"C:\\\\Program Files\\\\WindowsApps\\\\Microsoft.GamingApp_2602.1001.5.0_arm64__8wekyb3d8bbwe\\\\XboxPcApp.exe\"\n    }\n]\n",
+        "stderr": "",
+        "duration_ms": 2283.58
+      },
+      {
+        "time": "2026-02-26T17:03:25.428048+00:00",
+        "type": "win_windows_list",
+        "ok": true,
+        "top_n": 5,
+        "count": 5
+      }
+    ]
+  },
+  "vui": {
+    "ops": [
+      {
+        "time": "2026-02-26T17:03:01.629333+00:00",
+        "type": "vui_profile_set",
+        "ok": true,
+        "profile": "assistant"
+      },
+      {
+        "time": "2026-02-26T17:03:01.629385+00:00",
+        "type": "vui_log",
+        "ok": true,
+        "role": "user",
+        "transcript": "open calculator and search settings",
+        "meta": null
+      },
+      {
+        "time": "2026-02-26T17:03:01.629427+00:00",
+        "type": "vui_say",
+        "ok": true,
+        "dry_run": true,
+        "text": "NexusFlow Windows automation dry run ready.",
+        "chars": 43,
+        "voice": null,
+        "rate": 0,
+        "volume": 80,
+        "profile": "assistant"
+      },
+      {
+        "time": "2026-02-26T17:03:04.462813+00:00",
+        "type": "vui_list_voices",
+        "ok": true,
+        "count": 2
+      }
+    ],
+    "profiles": {
+      "assistant": {
+        "name": "assistant",
+        "voice": null,
+        "rate": 0,
+        "volume": 80,
+        "style": null
+      }
+    },
+    "voices_cache": {
+      "ok": true,
+      "voices": [
+        {
+          "Name": "Microsoft Hazel Desktop",
+          "Culture": "en-GB",
+          "Gender": "Female",
+          "Age": "Adult",
+          "Description": "Microsoft Hazel Desktop - English (Great Britain)"
+        },
+        {
+          "Name": "Microsoft Zira Desktop",
+          "Culture": "en-US",
+          "Gender": "Female",
+          "Age": "Adult",
+          "Description": "Microsoft Zira Desktop - English (United States)"
+        }
+      ]
+    },
+    "transcripts": [
+      {
+        "time": "2026-02-26T17:03:01.629385+00:00",
+        "role": "user",
+        "text": "open calculator and search settings",
+        "meta": null
+      }
+    ]
+  },
+  "http": {
+    "ops": [],
+    "auth_presets": {},
+    "mock_servers": {}
+  },
+  "sqlite": {
+    "ops": [],
+    "databases": {}
+  },
+  "archives": {
+    "ops": [],
+    "archives": {}
+  },
+  "resources": {
+    "ops": [],
+    "limits": {
+      "events_max": 500,
+      "http_ops_max": 100,
+      "windows_ops_max": 50,
+      "vui_ops_max": 100,
+      "sqlite_ops_max": 150,
+      "archive_ops_max": 100,
+      "lang_runs_max": 100,
+      "thread_events_max": 50,
+      "resource_ops_max": 120,
+      "max_sim_workers": null,
+      "max_pipeline_workers": null
+    }
+  },
+  "unsupported_steps": []
+}

@@ -1,0 +1,916 @@
+﻿{
+  "project": "EcoAIDashboard",
+  "pipeline": {
+    "pipeline": "preview",
+    "executed": [
+      {
+        "step": "repeat",
+        "count": {
+          "type": "literal",
+          "value": 2
+        },
+        "substep": {
+          "step": "simulate_mt",
+          "args": [
+            {
+              "type": "literal",
+              "value": 5
+            },
+            {
+              "type": "literal",
+              "value": 4
+            }
+          ]
+        }
+      },
+      {
+        "step": "bench",
+        "label": "main_sim",
+        "substep": {
+          "step": "simulate_mt",
+          "args": [
+            {
+              "type": "literal",
+              "value": 10
+            },
+            {
+              "type": "literal",
+              "value": 4
+            }
+          ]
+        }
+      },
+      {
+        "step": "torch_train",
+        "args": [
+          {
+            "type": "literal",
+            "value": "brain"
+          },
+          {
+            "type": "literal",
+            "value": "synthetic_env"
+          },
+          {
+            "type": "literal",
+            "value": 3
+          },
+          {
+            "type": "literal",
+            "value": 0.003
+          },
+          {
+            "type": "literal",
+            "value": 64
+          }
+        ]
+      },
+      {
+        "step": "parallel",
+        "substeps": [
+          {
+            "step": "export_json",
+            "args": [
+              {
+                "type": "literal",
+                "value": "out/eco_snapshot.json"
+              }
+            ]
+          },
+          {
+            "step": "export_html",
+            "args": [
+              {
+                "type": "literal",
+                "value": "out/eco_dashboard.html"
+              }
+            ]
+          },
+          {
+            "step": "torch_export",
+            "args": [
+              {
+                "type": "literal",
+                "value": "brain"
+              },
+              {
+                "type": "literal",
+                "value": "out/brain.pt"
+              }
+            ]
+          },
+          {
+            "step": "export_csv",
+            "args": [
+              {
+                "type": "literal",
+                "value": "out/eco_report.csv"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "step": "write_text",
+        "args": [
+          {
+            "type": "literal",
+            "value": "out/session_notes.txt"
+          },
+          {
+            "type": "literal",
+            "value": "NexusFlow run on "
+          }
+        ]
+      },
+      {
+        "step": "append_text",
+        "args": [
+          {
+            "type": "literal",
+            "value": "out/session_notes.txt"
+          },
+          {
+            "type": "call",
+            "name": "now_iso",
+            "args": []
+          }
+        ]
+      },
+      {
+        "step": "save_state",
+        "args": [
+          {
+            "type": "literal",
+            "value": "out/eco_state.json"
+          }
+        ]
+      },
+      {
+        "step": "win_powershell",
+        "args": [
+          {
+            "type": "literal",
+            "value": "$PSVersionTable.PSVersion.ToString()"
+          }
+        ]
+      },
+      {
+        "step": "when",
+        "condition": {
+          "type": "call",
+          "name": "path_exists",
+          "args": [
+            {
+              "type": "literal",
+              "value": "out/eco_snapshot.json"
+            }
+          ]
+        },
+        "substep": {
+          "step": "win_cmd",
+          "args": [
+            {
+              "type": "literal",
+              "value": "echo nexusflow-snapshot-ready"
+            }
+          ]
+        }
+      },
+      {
+        "step": "assert",
+        "args": [
+          {
+            "type": "call",
+            "name": "path_exists",
+            "args": [
+              {
+                "type": "literal",
+                "value": "out/eco_report.csv"
+              }
+            ]
+          },
+          {
+            "type": "literal",
+            "value": "eco_report.csv missing"
+          }
+        ]
+      },
+      {
+        "step": "win_processes_json",
+        "args": [
+          {
+            "type": "literal",
+            "value": "out/processes_top5.json"
+          },
+          {
+            "type": "literal",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "step": "run_pipeline",
+        "args": [
+          {
+            "type": "literal",
+            "value": "postflight"
+          }
+        ]
+      },
+      {
+        "step": "summary",
+        "args": []
+      }
+    ]
+  },
+  "snapshot": {
+    "project": "EcoAIDashboard",
+    "config": {
+      "seed": 42,
+      "threads": 4,
+      "pipeline_threads": 3,
+      "targets": [
+        "web",
+        "python"
+      ],
+      "purpose": "Rapid ecosystem + AI prototype"
+    },
+    "state": {
+      "day": 20,
+      "food": 104,
+      "weather": "mild",
+      "alert_level": 0,
+      "host_name": "Nolans-TechSupp",
+      "host_platform": "Windows-11-10.0.26200-SP0",
+      "run_id": "ec296d53-5daa-4d59-b17b-7e88b2bc3cce",
+      "meta": {
+        "kind": "ecosim",
+        "version": 3
+      }
+    },
+    "metrics": {
+      "ecosystem_energy": 224,
+      "pressure": 16,
+      "grazer_events": 48,
+      "all_events": 75,
+      "meta_key_count": 2
+    },
+    "tick": 20,
+    "models": {
+      "brain": {
+        "kind": "mlp",
+        "inputs": 6,
+        "outputs": 3,
+        "hidden": [
+          32,
+          32
+        ],
+        "activation": "relu",
+        "backend": "pytorch"
+      }
+    },
+    "datasets": {
+      "synthetic_env": {
+        "source": "synthetic",
+        "task": "classification",
+        "samples": 2048,
+        "inputs": 6,
+        "outputs": 3,
+        "batch_size": 64,
+        "label": "ecosystem-agent-actions"
+      }
+    },
+    "channels": {
+      "alerts": 16
+    },
+    "agents": {
+      "grazer": [
+        {
+          "id": 0,
+          "_type": "grazer",
+          "energy": 22,
+          "hunger": 2,
+          "age": 20,
+          "tick": 20
+        },
+        {
+          "id": 1,
+          "_type": "grazer",
+          "energy": 25,
+          "hunger": 2,
+          "age": 20,
+          "tick": 20
+        },
+        {
+          "id": 2,
+          "_type": "grazer",
+          "energy": 26,
+          "hunger": 2,
+          "age": 20,
+          "tick": 20
+        },
+        {
+          "id": 3,
+          "_type": "grazer",
+          "energy": 24,
+          "hunger": 2,
+          "age": 20,
+          "tick": 20
+        },
+        {
+          "id": 4,
+          "_type": "grazer",
+          "energy": 25,
+          "hunger": 2,
+          "age": 20,
+          "tick": 20
+        },
+        {
+          "id": 5,
+          "_type": "grazer",
+          "energy": 22,
+          "hunger": 2,
+          "age": 20,
+          "tick": 20
+        },
+        {
+          "id": 6,
+          "_type": "grazer",
+          "energy": 26,
+          "hunger": 2,
+          "age": 20,
+          "tick": 20
+        },
+        {
+          "id": 7,
+          "_type": "grazer",
+          "energy": 24,
+          "hunger": 2,
+          "age": 20,
+          "tick": 20
+        }
+      ],
+      "scout": [
+        {
+          "id": 0,
+          "_type": "scout",
+          "energy": 15,
+          "scans": 20,
+          "tick": 20
+        },
+        {
+          "id": 1,
+          "_type": "scout",
+          "energy": 15,
+          "scans": 20,
+          "tick": 20
+        }
+      ]
+    },
+    "agent_summary": {
+      "grazer": {
+        "count": 8,
+        "avg_age": 20.0,
+        "min_age": 20,
+        "max_age": 20,
+        "avg_energy": 24.25,
+        "min_energy": 22,
+        "max_energy": 26,
+        "avg_hunger": 2.0,
+        "min_hunger": 2,
+        "max_hunger": 2,
+        "avg_id": 3.5,
+        "min_id": 0,
+        "max_id": 7,
+        "avg_tick": 20.0,
+        "min_tick": 20,
+        "max_tick": 20
+      },
+      "scout": {
+        "count": 2,
+        "avg_energy": 15.0,
+        "min_energy": 15,
+        "max_energy": 15,
+        "avg_id": 0.5,
+        "min_id": 0,
+        "max_id": 1,
+        "avg_scans": 20.0,
+        "min_scans": 20,
+        "max_scans": 20,
+        "avg_tick": 20.0,
+        "min_tick": 20,
+        "max_tick": 20
+      }
+    },
+    "events": [
+      {
+        "tick": 1,
+        "event": "scout_found_food"
+      },
+      {
+        "tick": 2,
+        "event": "scout_found_food"
+      },
+      {
+        "tick": 3,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 3,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 3,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 3,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 3,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 3,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 3,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 3,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 3,
+        "event": "scout_found_food"
+      },
+      {
+        "tick": 3,
+        "event": "scout_found_food"
+      },
+      {
+        "tick": 6,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 6,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 6,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 6,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 6,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 6,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 6,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 6,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 7,
+        "event": "scout_found_food"
+      },
+      {
+        "tick": 7,
+        "event": "scout_found_food"
+      },
+      {
+        "tick": 9,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 9,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 9,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 9,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 9,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 9,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 9,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 9,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 9,
+        "event": "scout_found_food"
+      },
+      {
+        "tick": 11,
+        "event": "scout_found_food"
+      },
+      {
+        "tick": 12,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 12,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 12,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 12,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 12,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 12,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 12,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 12,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 12,
+        "event": "scout_found_food"
+      },
+      {
+        "tick": 14,
+        "event": "scout_found_food"
+      },
+      {
+        "tick": 15,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 15,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 15,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 15,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 15,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 15,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 15,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 15,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 15,
+        "event": "scout_found_food"
+      },
+      {
+        "tick": 17,
+        "event": "scout_found_food"
+      },
+      {
+        "tick": 18,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 18,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 18,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 18,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 18,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 18,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 18,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 18,
+        "event": "grazer_ate"
+      },
+      {
+        "tick": 18,
+        "event": "scout_found_food"
+      },
+      {
+        "tick": 19,
+        "event": "scout_found_food"
+      },
+      {
+        "tick": 20,
+        "event": "scout_found_food"
+      },
+      {
+        "tick": 20,
+        "event": "scout_found_food"
+      },
+      {
+        "tick": 20,
+        "event": "bench:main_sim",
+        "duration_ms": 15.61
+      },
+      {
+        "tick": 20,
+        "event": "torch_train:brain:synthetic_env"
+      },
+      {
+        "tick": 20,
+        "event": "torch_export:brain"
+      },
+      {
+        "tick": 20,
+        "event": "win_powershell",
+        "ok": true
+      },
+      {
+        "tick": 20,
+        "event": "win_cmd",
+        "ok": true
+      },
+      {
+        "tick": 20,
+        "event": "assert_ok"
+      },
+      {
+        "tick": 20,
+        "event": "win_processes_json",
+        "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\processes_top5.json"
+      },
+      {
+        "tick": 20,
+        "event": "postflight_start",
+        "payload": {
+          "run_id": "ec296d53-5daa-4d59-b17b-7e88b2bc3cce"
+        }
+      },
+      {
+        "tick": 20,
+        "event": "win_services_json",
+        "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\services_top10.json"
+      },
+      {
+        "tick": 20,
+        "event": "win_beep",
+        "ok": true
+      },
+      {
+        "tick": 20,
+        "event": "try_success",
+        "step": "win_beep"
+      }
+    ],
+    "training_runs": [
+      {
+        "backend": "pytorch",
+        "model": "brain",
+        "dataset": "synthetic_env",
+        "epochs": 3,
+        "lr": 0.003,
+        "batch_size": 64,
+        "loss_history": [
+          0.903897,
+          0.38795,
+          0.156098
+        ],
+        "final_loss": 0.156098,
+        "duration_ms": 174.78,
+        "tick_at_start": 20
+      }
+    ],
+    "benchmarks": [
+      {
+        "label": "main_sim",
+        "step": "simulate_mt",
+        "duration_ms": 15.61,
+        "tick": 20
+      }
+    ],
+    "threading": {
+      "simulate_calls": 0,
+      "simulate_mt_calls": 3,
+      "pipeline_parallel_calls": 1,
+      "max_workers_seen": 4,
+      "thread_events": [
+        {
+          "kind": "simulate",
+          "mode": "multithread",
+          "ticks": 5,
+          "workers": 4
+        },
+        {
+          "kind": "simulate",
+          "mode": "multithread",
+          "ticks": 5,
+          "workers": 4
+        },
+        {
+          "kind": "simulate",
+          "mode": "multithread",
+          "ticks": 10,
+          "workers": 4
+        },
+        {
+          "kind": "pipeline_parallel",
+          "workers": 3,
+          "substeps": [
+            "export_json",
+            "export_html",
+            "torch_export",
+            "export_csv"
+          ]
+        }
+      ]
+    },
+    "pytorch": {
+      "available": true,
+      "import_error": null,
+      "trained_models": [
+        "brain"
+      ],
+      "exports": [
+        {
+          "model": "brain",
+          "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\brain.pt",
+          "meta": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\brain.pt.json"
+        }
+      ]
+    },
+    "windows": {
+      "host": {
+        "is_windows": true,
+        "platform": "Windows-11-10.0.26200-SP0",
+        "system": "Windows",
+        "release": "11",
+        "version": "10.0.26200",
+        "hostname": "Nolans-TechSupp",
+        "cwd": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples"
+      },
+      "ops": [
+        {
+          "time": "2026-02-26T13:23:25.801072+00:00",
+          "type": "powershell",
+          "script": "$PSVersionTable.PSVersion.ToString()",
+          "ok": true,
+          "returncode": 0,
+          "stdout": "5.1.26100.7920\n",
+          "stderr": "",
+          "duration_ms": 2014.4
+        },
+        {
+          "time": "2026-02-26T13:23:25.829556+00:00",
+          "type": "win_cmd",
+          "command": "echo nexusflow-snapshot-ready",
+          "ok": true,
+          "returncode": 0,
+          "stdout": "nexusflow-snapshot-ready\n",
+          "stderr": "",
+          "duration_ms": 27.92
+        },
+        {
+          "time": "2026-02-26T13:23:28.122259+00:00",
+          "type": "powershell",
+          "script": "Get-Process | Sort-Object -Property CPU -Descending | Select-Object -First 5 | Select-Object Name,Id,CPU,WS,PM,Path | ConvertTo-Json -Depth 3",
+          "ok": true,
+          "returncode": 0,
+          "stdout": "[\n    {\n        \"Name\":  \"Antigravity\",\n        \"Id\":  24728,\n        \"CPU\":  618.765625,\n        \"WS\":  691326976,\n        \"PM\":  735719424,\n        \"Path\":  \"C:\\\\Users\\\\kai99\\\\AppData\\\\Local\\\\Programs\\\\Antigravity\\\\Antigravity.exe\"\n    },\n    {\n        \"Name\":  \"Antigravity\",\n        \"Id\":  13040,\n        \"CPU\":  383.65625,\n        \"WS\":  324853760,\n        \"PM\":  337653760,\n        \"Path\":  \"C:\\\\Users\\\\kai99\\\\AppData\\\\Local\\\\Programs\\\\Antigravity\\\\Antigravity.exe\"\n    },\n    {\n        \"Name\":  \"Antigravity\",\n        \"Id\":  1968,\n        \"CPU\":  353.203125,\n        \"WS\":  283852800,\n        \"PM\":  322371584,\n        \"Path\":  \"C:\\\\Users\\\\kai99\\\\AppData\\\\Local\\\\Programs\\\\Antigravity\\\\Antigravity.exe\"\n    },\n    {\n        \"Name\":  \"chrome\",\n        \"Id\":  17124,\n        \"CPU\":  261.109375,\n        \"WS\":  312672256,\n        \"PM\":  390791168,\n        \"Path\":  \"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\"\n    },\n    {\n        \"Name\":  \"AdskIdentityManager\",\n        \"Id\":  18720,\n        \"CPU\":  222.859375,\n        \"WS\":  29093888,\n        \"PM\":  36884480,\n        \"Path\":  \"C:\\\\Program Files\\\\Autodesk\\\\AdskIdentityManager\\\\1.16.5.1\\\\AdskIdentityManager.exe\"\n    }\n]\n",
+          "stderr": "",
+          "duration_ms": 2291.97
+        },
+        {
+          "time": "2026-02-26T13:23:28.123212+00:00",
+          "type": "win_processes_json",
+          "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\processes_top5.json",
+          "top_n": 5,
+          "ok": true
+        },
+        {
+          "time": "2026-02-26T13:23:30.127725+00:00",
+          "type": "powershell",
+          "script": "$s = Get-Service -Name 'EventLog' -ErrorAction Stop; $s | Select-Object Name,DisplayName,Status,StartType,ServiceType,CanPauseAndContinue,CanStop | ConvertTo-Json -Depth 3",
+          "ok": true,
+          "returncode": 0,
+          "stdout": "{\n    \"Name\":  \"EventLog\",\n    \"DisplayName\":  \"Windows Event Log\",\n    \"Status\":  4,\n    \"StartType\":  2,\n    \"ServiceType\":  48,\n    \"CanPauseAndContinue\":  false,\n    \"CanStop\":  true\n}\n",
+          "stderr": "",
+          "duration_ms": 2000.53
+        },
+        {
+          "time": "2026-02-26T13:23:30.127854+00:00",
+          "type": "win_service_status",
+          "service": "EventLog",
+          "ok": true
+        },
+        {
+          "time": "2026-02-26T13:23:32.187534+00:00",
+          "type": "powershell",
+          "script": "try { $v = Get-ItemPropertyValue -Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion' -Name 'ProductName' -ErrorAction Stop; if ($null -eq $v) { Write-Output '' } else { Write-Output $v } } catch { exit 2 }",
+          "ok": true,
+          "returncode": 0,
+          "stdout": "Windows 10 Home\n",
+          "stderr": "",
+          "duration_ms": 2058.72
+        },
+        {
+          "time": "2026-02-26T13:23:32.187581+00:00",
+          "type": "win_registry_get",
+          "path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion",
+          "name": "ProductName",
+          "ok": true
+        },
+        {
+          "time": "2026-02-26T13:23:34.126754+00:00",
+          "type": "powershell",
+          "script": "Get-Service | Sort-Object -Property Status,DisplayName | Select-Object -First 10 Name,DisplayName,Status,StartType | ConvertTo-Json -Depth 3",
+          "ok": true,
+          "returncode": 0,
+          "stdout": "[\n    {\n        \"Name\":  \"AxInstSV\",\n        \"DisplayName\":  \"ActiveX Installer (AxInstSV)\",\n        \"Status\":  1,\n        \"StartType\":  3\n    },\n    {\n        \"Name\":  \"AarSvc_1558def\",\n        \"DisplayName\":  \"Agent Activation Runtime_1558def\",\n        \"Status\":  1,\n        \"StartType\":  3\n    },\n    {\n        \"Name\":  \"ADPSvc\",\n        \"DisplayName\":  \"Aggregated Data Platform Service\",\n        \"Status\":  1,\n        \"StartType\":  3\n    },\n    {\n        \"Name\":  \"AppReadiness\",\n        \"DisplayName\":  \"App Readiness\",\n        \"Status\":  1,\n        \"StartType\":  3\n    },\n    {\n        \"Name\":  \"AppIDSvc\",\n        \"DisplayName\":  \"Application Identity\",\n        \"Status\":  1,\n        \"StartType\":  3\n    },\n    {\n        \"Name\":  \"ALG\",\n        \"DisplayName\":  \"Application Layer Gateway Service\",\n        \"Status\":  1,\n        \"StartType\":  3\n    },\n    {\n        \"Name\":  \"tzautoupdate\",\n        \"DisplayName\":  \"Auto Time Zone Updater\",\n        \"Status\":  1,\n        \"StartType\":  4\n    },\n    {\n        \"Name\":  \"BITS\",\n        \"DisplayName\":  \"Background Intelligent Transfer Service\",\n        \"Status\":  1,\n        \"StartType\":  3\n    },\n    {\n        \"Name\":  \"wbengine\",\n        \"DisplayName\":  \"Block Level Backup Engine Service\",\n        \"Status\":  1,\n        \"StartType\":  3\n    },\n    {\n        \"Name\":  \"autotimesvc\",\n        \"DisplayName\":  \"Cellular Time\",\n        \"Status\":  1,\n        \"StartType\":  3\n    }\n]\n",
+          "stderr": "",
+          "duration_ms": 1938.11
+        },
+        {
+          "time": "2026-02-26T13:23:34.127611+00:00",
+          "type": "win_services_json",
+          "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\services_top10.json",
+          "top_n": 10,
+          "ok": true
+        },
+        {
+          "time": "2026-02-26T13:23:36.024168+00:00",
+          "type": "powershell",
+          "script": "[console]::Beep(880, 60); Write-Output 'ok'",
+          "ok": true,
+          "returncode": 0,
+          "stdout": "ok\n",
+          "stderr": "",
+          "duration_ms": 1896.41
+        },
+        {
+          "time": "2026-02-26T13:23:36.024214+00:00",
+          "type": "win_beep",
+          "freq": 880,
+          "duration_ms": 1896.41,
+          "ok": true,
+          "returncode": 0,
+          "stdout": "ok\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "unsupported_steps": []
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "ok": true,
+  "name": "edge_int8",
+  "workload": {
+    "name": "tiny_npu",
+    "kind": "model_ref",
+    "model_spec": {
+      "backend": "npu",
+      "inputs": 4,
+      "hidden": 12,
+      "outputs": 2,
+      "layers": 2,
+      "lr": 0.005
+    },
+    "dataset_spec": {
+      "samples": 48,
+      "inputs": 4,
+      "outputs": 2,
+      "task": "classification",
+      "batch_size": 8
+    },
+    "inputs": 4,
+    "outputs": 2,
+    "hidden": 12,
+    "layers": 2,
+    "batch_size": 4,
+    "task": "training",
+    "params_estimate": 216
+  },
+  "profile": "edge_int8",
+  "provider": {
+    "name": "cpu_fallback",
+    "available": true,
+    "source": "fallback"
+  },
+  "providers": [
+    {
+      "name": "cpu_fallback",
+      "available": true,
+      "source": "fallback"
+    }
+  ],
+  "probe_summary": {
+    "recommended_device": "cpu",
+    "npu_available": false,
+    "torch": {
+      "available": true,
+      "cuda": {
+        "available": false,
+        "count": 0,
+        "devices": []
+      },
+      "mps": {
+        "available": false
+      },
+      "xpu": {
+        "available": false,
+        "count": 0
+      }
+    }
+  },
+  "execution_device": "cpu",
+  "logical_device": "npu",
+  "used_fallback": true,
+  "fallback_reason": "npu_unavailable",
+  "fallback_chain": [
+    "cpu",
+    "xpu",
+    "cuda",
+    "mps"
+  ],
+  "precision": "int8",
+  "quantize": true,
+  "optimize_for": "latency",
+  "batch_size": 4,
+  "threads": 8,
+  "estimated_memory_bytes": 312,
+  "estimated_throughput_score": 0.9,
+  "created_at": "2026-02-26T18:38:42.191215+00:00"
+}

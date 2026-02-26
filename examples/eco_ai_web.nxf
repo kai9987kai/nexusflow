@@ -1,0 +1,214 @@
+project "EcoAIDashboard" {
+  config seed = 42;
+  config threads = 4;
+  config pipeline_threads = 3;
+  config targets = ["web", "python"];
+  config purpose = "Rapid ecosystem + AI prototype";
+
+  state day = 0;
+  state food = 120;
+  state weather = "mild";
+  state alert_level = 0;
+  state host_name = hostname();
+  state host_platform = platform();
+  state run_id = uuid4();
+  state meta = {"kind": "ecosim", "version": 3};
+  state primary_scene = "ecosystem_lab";
+  state peptide_seq = "MKWVTFISLLFLFSSAYS";
+
+  metric ecosystem_energy = sum_agent("grazer", "energy") + sum_agent("scout", "energy");
+  metric pressure = alert_level + queue_size("alerts");
+  metric grazer_events = count_events("grazer_ate");
+  metric all_events = count_events();
+  metric meta_key_count = len(keys(meta));
+  metric asset_load_count = asset3d_count();
+  metric scene_node_total = scene_node_count(primary_scene);
+  metric food_progress = clamp((food * 100) / 120, 0, 100);
+  metric web_tool_files = web_tool_count();
+  metric http_history_ops = http_history_count();
+  metric http_auth_presets = http_auth_preset_count();
+  metric fusion_q_demo = fusion_metric("tokamak_demo", "q_estimate");
+  metric fusion_q_mz = fusion_metric("tokamak_multizone", "q_estimate");
+  metric fusion_mz_zones = fusion_metric("tokamak_multizone", "zones");
+  metric protein_rg_demo = protein_metric("albumin_fragment", "radius_gyration");
+  metric protein_rg_3d = protein_metric("albumin_fragment_3d", "radius_gyration");
+  metric protein_hydro_ratio = protein_hydrophobicity(peptide_seq);
+
+  channel alerts;
+
+  model brain {
+    kind = "mlp";
+    inputs = 6;
+    outputs = 3;
+    hidden = [32, 32];
+    activation = "relu";
+    backend = "pytorch";
+  }
+
+  dataset synthetic_env {
+    source = "synthetic";
+    task = "classification";
+    samples = 2048;
+    inputs = 6;
+    outputs = 3;
+    batch_size = 64;
+    label = "ecosystem-agent-actions";
+  }
+
+  agent grazer count 8 {
+    field energy = 12;
+    field hunger = 0;
+    field age = 0;
+
+    on tick {
+      age += 1;
+      hunger += 1;
+
+      if hunger > 2 {
+        if food > 0 {
+          food -= 1;
+          energy += randint(1, 3);
+          emit "grazer_ate";
+        } else {
+          energy -= 1;
+          alert_level += 1;
+          emit "food_shortage";
+        }
+        hunger = 0;
+      }
+
+      energy = clamp(energy, 0, 30);
+      if energy == 0 {
+        send("alerts", "grazer_exhausted");
+        emit "grazer_exhausted";
+      }
+    }
+  }
+
+  agent scout count 2 {
+    field energy = 15;
+    field scans = 0;
+
+    on tick {
+      scans += 1;
+      if rand() > 0.7 {
+        food += 2;
+        send("alerts", "food_ping");
+        emit "scout_found_food";
+      }
+      day = tick;
+    }
+  }
+
+  ui {
+    template "ops_console";
+    template "creator_studio";
+    theme = "ocean";
+
+    panel "World" {
+      text "Day" = day;
+      text "Food" = food;
+      text "Weather" = weather;
+      text "Alert" = alert_level;
+      text "Host" = host_name;
+      text "Pressure Metric" = pressure;
+      text "Alert Queue" = queue_size("alerts");
+      text "Run ID" = run_id;
+    }
+
+    panel "Agent Stats" {
+      stat "Ecosystem Energy" = ecosystem_energy;
+      stat "3D Assets" = asset_load_count;
+      stat "Web Tools" = web_tool_files;
+      stat "HTTP Ops" = http_history_ops;
+      stat "HTTP Presets" = http_auth_presets;
+      stat "Fusion Q" = fusion_q_demo;
+      stat "Fusion Q (MZ)" = fusion_q_mz;
+      stat "Protein Rg" = protein_rg_demo;
+      stat "Protein3D Rg" = protein_rg_3d;
+      progress "Food Capacity" = food_progress;
+      progress "Hydrophobic %" = protein_hydro_ratio * 100;
+      text "Grazers" = agent_count("grazer");
+      text "Avg Grazer Energy" = avg_agent("grazer", "energy");
+      text "Grazer Events" = grazer_events;
+      text "All Events" = all_events;
+      text "Meta Keys" = meta_key_count;
+      text "Scouts" = agent_count("scout");
+      text "Scene Nodes" = scene_node_total;
+      text "Fusion MZ Zones" = fusion_mz_zones;
+      scene3d "Live Scene" = primary_scene;
+      json "Scene Meta" = scene3d_info(primary_scene);
+      json "Fusion Demo" = fusion_info("tokamak_demo");
+      json "Fusion MZ" = fusion_info("tokamak_multizone");
+      json "Protein Fold" = protein_info("albumin_fragment");
+      json "Protein Fold 3D" = protein_info("albumin_fragment_3d");
+      json "HTTP Last" = http_last();
+      button "Tick x20 MT" = "simulate_mt(20,4)";
+      button "Torch Train" = "torch_train(brain, synthetic_env, 3)";
+    }
+  }
+
+  pipeline preview {
+    step web_tool_suite("out/web_tools", "lab");
+    step web_live_tool_suite("out/web_tools_live");
+    step web_interaction_tool("out/web_tools/interaction_lab_plus.html", "Eco Interaction Lab");
+    step web_tool_generate("prompt_studio", "out/web_tools/prompt_studio_plus.html", "Eco Prompt Studio");
+    step web_tool_generate("mock_server_lab", "out/web_tools_live/mock_server_plus.html", "Eco Mock Server Lab");
+    step web_tool_generate("websocket_lab", "out/web_tools_live/websocket_plus.html", "Eco WebSocket Lab");
+    step http_auth_preset("demo_local", {"Authorization": "Bearer local-demo", "X-App": "EcoAIDashboard"});
+    step export_http_history_json("out/http_history.json");
+    step load_3d("terrain_tile", "assets/terrain_tile.obj");
+    step load_3d("drone", "assets/drone.gltf");
+    step scene_new(primary_scene, "lab");
+    step scene_add(primary_scene, "terrain_tile", "terrain", {"position": [0, 0, 0], "scale": [2, 1, 2]});
+    step scene_add(primary_scene, "drone", "scout_drone", {"position": [1.5, 1.2, -0.8]});
+    step scene_light(primary_scene, "hemisphere", 0.9, "#8ec5ff");
+    step scene_camera(primary_scene, [4.5, 3, 8], [0, 0, 0], 52);
+    step fusion_sim("tokamak_demo", 80, {"heating_mw": 145, "magnetic_field_t": 5.8, "fueling_rate": 0.012});
+    step fusion_sim_multizone("tokamak_multizone", 90, {"heating_mw": 165, "zones": 4, "magnetic_field_t": 6.0});
+    step protein_fold_sim("albumin_fragment", peptide_seq, 140, {"temperature": 0.85});
+    step protein_fold_sim_3d("albumin_fragment_3d", peptide_seq, 130, {"temperature": 0.82});
+    step repeat(simulate_mt(5, 4), 2);
+    step bench("main_sim", simulate_mt(10, 4));
+    step torch_train("brain", "synthetic_env", 3, 0.003, 64);
+    step parallel(
+      export_json("out/eco_snapshot.json"),
+      export_html("out/eco_dashboard.html"),
+      export_scene_json(primary_scene, "out/eco_scene.json"),
+      export_scene_html(primary_scene, "out/eco_scene.html"),
+      export_fusion_json("tokamak_demo", "out/fusion_demo.json"),
+      export_fusion_json("tokamak_multizone", "out/fusion_multizone.json"),
+      export_fusion_html("tokamak_multizone", "out/fusion_multizone.html"),
+      export_protein_json("albumin_fragment", "out/protein_demo.json"),
+      export_protein_json("albumin_fragment_3d", "out/protein_demo_3d.json"),
+      export_protein_html("albumin_fragment_3d", "out/protein_demo_3d.html"),
+      torch_export("brain", "out/brain.pt"),
+      export_csv("out/eco_report.csv")
+    );
+    step write_text("out/session_notes.txt", "NexusFlow run on ");
+    step append_text("out/session_notes.txt", now_iso());
+    step save_state("out/eco_state.json");
+    step win_powershell("$PSVersionTable.PSVersion.ToString()");
+    step when(path_exists("out/eco_snapshot.json"), win_cmd("echo nexusflow-snapshot-ready"));
+    step assert(path_exists("out/eco_report.csv"), "eco_report.csv missing");
+    step win_processes_json("out/processes_top5.json", 5);
+    step run_pipeline("postflight");
+    step summary();
+  }
+
+  pipeline postflight {
+    step emit_event("postflight_start", {"run_id": run_id});
+    step export_events_jsonl("out/events.jsonl");
+    step write_text("out/meta.json", json_stringify(meta, true));
+    step write_text(
+      "out/eventlog_service.json",
+      json_stringify(win_service_status("EventLog"), true)
+    );
+    step write_text(
+      "out/windows_product_name.txt",
+      to_string(win_registry_get("HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", "ProductName", "unknown"))
+    );
+    step win_services_json("out/services_top10.json", 10);
+    step try(win_beep(880, 60), emit_event("beep_skipped"));
+  }
+}

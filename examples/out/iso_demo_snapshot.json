@@ -1,0 +1,329 @@
+{
+  "project": "IsoToolsDemo",
+  "config": {},
+  "state": {},
+  "metrics": {
+    "iso_images": 1,
+    "iso_ops": 3,
+    "iso_label": "NEXUSISO",
+    "iso_manifest_files": 2,
+    "iso_builder": null,
+    "archive_ops": 3
+  },
+  "tick": 0,
+  "models": {},
+  "datasets": {},
+  "assets3d": {},
+  "scenes3d": {},
+  "web_tools": {},
+  "fusion_runs": {},
+  "protein_runs": {},
+  "channels": {},
+  "agents": {},
+  "agent_summary": {},
+  "events": [
+    {
+      "tick": 0,
+      "event": "iso_build",
+      "image": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\demo.iso",
+      "dry_run": true
+    },
+    {
+      "tick": 0,
+      "event": "iso_list",
+      "image": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\demo.iso",
+      "mode": "source_manifest"
+    },
+    {
+      "tick": 0,
+      "event": "iso_list_json",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\demo_iso_list.json",
+      "ok": true
+    },
+    {
+      "tick": 0,
+      "event": "iso_extract",
+      "image": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\demo.iso",
+      "dry_run": true
+    }
+  ],
+  "training_runs": [],
+  "benchmarks": [],
+  "threading": {
+    "simulate_calls": 0,
+    "simulate_mt_calls": 0,
+    "pipeline_parallel_calls": 0,
+    "max_workers_seen": 1,
+    "thread_events": []
+  },
+  "pytorch": {
+    "available": true,
+    "import_error": null,
+    "trained_models": [],
+    "exports": []
+  },
+  "python_ml": {
+    "trained_models": [],
+    "exports": [],
+    "models": {}
+  },
+  "languages": {
+    "modules": {},
+    "runs": []
+  },
+  "windows": {
+    "host": {
+      "is_windows": true,
+      "platform": "Windows-11-10.0.26200-SP0",
+      "system": "Windows",
+      "release": "11",
+      "version": "10.0.26200",
+      "hostname": "Nolans-TechSupp",
+      "cwd": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples"
+    },
+    "ops": []
+  },
+  "vui": {
+    "ops": [],
+    "profiles": {},
+    "voices_cache": null,
+    "transcripts": []
+  },
+  "http": {
+    "ops": [],
+    "auth_presets": {},
+    "mock_servers": {}
+  },
+  "sqlite": {
+    "ops": [],
+    "databases": {}
+  },
+  "archives": {
+    "ops": [
+      {
+        "time": "2026-02-26T18:21:07.384541+00:00",
+        "op": "iso_build_dry_run",
+        "ok": true,
+        "archive": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\demo.iso",
+        "entries": 2,
+        "bytes": 29
+      },
+      {
+        "time": "2026-02-26T18:21:07.385901+00:00",
+        "op": "iso_list",
+        "ok": true,
+        "archive": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\demo.iso",
+        "entries": 2,
+        "bytes": 29
+      },
+      {
+        "time": "2026-02-26T18:21:07.388710+00:00",
+        "op": "iso_extract_dry_run",
+        "ok": true,
+        "archive": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\demo.iso"
+      }
+    ],
+    "archives": {
+      "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\demo.iso": {
+        "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\demo.iso",
+        "ops": 3,
+        "last_op": "iso_extract_dry_run",
+        "last_status": "ok",
+        "entries": 2,
+        "bytes": 29
+      }
+    }
+  },
+  "resources": {
+    "ops": [],
+    "limits": {
+      "events_max": 500,
+      "http_ops_max": 100,
+      "windows_ops_max": 50,
+      "vui_ops_max": 100,
+      "sqlite_ops_max": 150,
+      "archive_ops_max": 100,
+      "lang_runs_max": 100,
+      "thread_events_max": 50,
+      "resource_ops_max": 120,
+      "process_ops_max": 120,
+      "wifi_ops_max": 80,
+      "npu_probes_max": 30,
+      "photo_ops_max": 80,
+      "graph_ops_max": 120,
+      "convert_ops_max": 120,
+      "iso_ops_max": 40,
+      "github_ops_max": 60,
+      "max_sim_workers": null,
+      "max_pipeline_workers": null
+    }
+  },
+  "processes": {
+    "ops": [],
+    "profiles": {},
+    "managed": {}
+  },
+  "wifi": {
+    "ops": [],
+    "interfaces": [],
+    "profiles": [],
+    "last_scan": null
+  },
+  "npu": {
+    "last_probe": null,
+    "probes": []
+  },
+  "photos": {
+    "ops": [],
+    "images": {}
+  },
+  "graphs": {
+    "ops": [],
+    "graphs": {}
+  },
+  "conversion": {
+    "ops": []
+  },
+  "iso": {
+    "ops": [
+      {
+        "time": "2026-02-26T18:21:07.384373+00:00",
+        "op": "build",
+        "ok": true,
+        "dry_run": true,
+        "image": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\demo.iso",
+        "source": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\stage",
+        "label": "NEXUSISO",
+        "tool": null,
+        "command": null,
+        "entries": 2,
+        "bytes": 29,
+        "mode": "dry_run",
+        "exists": false,
+        "manifest_preview": [
+          {
+            "path": "readme.txt",
+            "bytes": 18,
+            "is_dir": false
+          },
+          {
+            "path": "sub/info.txt",
+            "bytes": 11,
+            "is_dir": false
+          }
+        ],
+        "manifest_preview_truncated": false,
+        "manifest_count": 2,
+        "source_file_count": 2,
+        "source_dir_count": 1,
+        "source_bytes": 29
+      },
+      {
+        "time": "2026-02-26T18:21:07.385788+00:00",
+        "op": "list",
+        "ok": true,
+        "image": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\demo.iso",
+        "mode": "source_manifest",
+        "tool": null,
+        "entries": [
+          {
+            "path": "readme.txt",
+            "bytes": 18,
+            "is_dir": false
+          },
+          {
+            "path": "sub/info.txt",
+            "bytes": 11,
+            "is_dir": false
+          }
+        ],
+        "count": 2,
+        "bytes": 29,
+        "truncated": false
+      },
+      {
+        "time": "2026-02-26T18:21:07.388667+00:00",
+        "op": "extract",
+        "ok": true,
+        "image": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\demo.iso",
+        "dest": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\extracted_demo",
+        "dry_run": true,
+        "mode": "dry_run",
+        "extract_dest": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\extracted_demo"
+      }
+    ],
+    "last": {
+      "time": "2026-02-26T18:21:07.388667+00:00",
+      "op": "extract",
+      "ok": true,
+      "image": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\demo.iso",
+      "dest": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\extracted_demo",
+      "dry_run": true,
+      "mode": "dry_run",
+      "extract_dest": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\extracted_demo"
+    },
+    "images": {
+      "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\demo.iso": {
+        "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\demo.iso",
+        "ops": 3,
+        "last_op": "extract",
+        "last_status": "ok",
+        "dry_run": true,
+        "tool": null,
+        "exists": false,
+        "source_bytes": 29,
+        "source_dir_count": 1,
+        "bytes": 29,
+        "manifest_preview_truncated": false,
+        "manifest_count": 2,
+        "label": "NEXUSISO",
+        "manifest_preview": [
+          {
+            "path": "readme.txt",
+            "bytes": 18,
+            "is_dir": false
+          },
+          {
+            "path": "sub/info.txt",
+            "bytes": 11,
+            "is_dir": false
+          }
+        ],
+        "source": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\stage",
+        "source_file_count": 2,
+        "mode": "dry_run",
+        "entries": 2,
+        "last_list_entries_preview": [
+          {
+            "path": "readme.txt",
+            "bytes": 18,
+            "is_dir": false
+          },
+          {
+            "path": "sub/info.txt",
+            "bytes": 11,
+            "is_dir": false
+          }
+        ],
+        "last_list_entries_truncated": false,
+        "extract_dest": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\extracted_demo"
+      }
+    },
+    "tools": {
+      "checked_at": "2026-02-26T18:21:07.314230+00:00",
+      "builders": [],
+      "listers": [],
+      "extractors": [],
+      "selected": {
+        "build": null,
+        "list": null,
+        "extract": null
+      }
+    }
+  },
+  "github_local": {
+    "ops": [],
+    "last_report": null
+  },
+  "unsupported_steps": []
+}

@@ -1,0 +1,22 @@
+{
+  "time": "2026-02-26T16:37:06.855217+00:00",
+  "label": "mid",
+  "host": {
+    "is_windows": true,
+    "platform": "Windows-11-10.0.26200-SP0",
+    "system": "Windows",
+    "release": "11",
+    "version": "10.0.26200",
+    "hostname": "Nolans-TechSupp",
+    "cwd": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples"
+  },
+  "cpu_count": 8,
+  "active_threads": 3,
+  "process_memory_bytes": null,
+  "process_time_sec": 1.921875,
+  "disk_out_dir": {
+    "total": 254292258816,
+    "used": 213599342592,
+    "free": 40692916224
+  }
+}

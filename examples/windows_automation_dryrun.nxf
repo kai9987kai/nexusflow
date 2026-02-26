@@ -1,0 +1,41 @@
+project "WindowsAutomationDryRun" {
+  metric win_ops = win_op_count();
+  metric vui_ops = vui_op_count();
+  metric mouse_x = get(win_mouse_pos(), "x", -1);
+  metric mouse_y = get(win_mouse_pos(), "y", -1);
+  metric screen_w = get(win_screen_size(), "width", 0);
+  metric screen_h = get(win_screen_size(), "height", 0);
+  metric fg_title = get(win_foreground_window(), "title", "");
+  metric fg_ok = get(win_foreground_window(), "ok", false);
+  metric win_list_count = len(win_windows(5));
+  metric vui_supported_tts = get(vui_supported(), "tts", false);
+  metric vui_intent_name = get(vui_intent("open calculator and search settings", {
+    "open_app": ["open", "launch", "start"],
+    "search_settings": {"patterns": ["search\\s+settings", "settings"], "weight": 1.5}
+  }), "intent", "");
+
+  pipeline check {
+    step vui_profile("assistant", {"rate": 0, "volume": 80});
+    step vui_log("user", "open calculator and search settings");
+    step vui_say("NexusFlow Windows automation dry run ready.", "assistant", true);
+    step vui_voices_json("out/vui_voices.json");
+    step win_windows_json("out/windows_top5.json", 5);
+    step win_input_sequence([
+      {"action": "move", "x": 120, "y": 140},
+      {"action": "click", "button": "left", "clicks": 1},
+      {"action": "type", "text": "NexusFlow automation test"},
+      {"action": "keys", "keys": "^a"},
+      {"action": "scroll", "delta": -120},
+      {"action": "sleep", "ms": 5}
+    ], true);
+    step write_text("out/foreground.json", json_stringify(win_foreground_window(), true));
+    step write_text("out/mouse_pos.json", json_stringify(win_mouse_pos(), true));
+    step write_text("out/vui_intent.json", json_stringify(vui_intent("open calculator and search settings", {
+      "open_app": ["open", "launch", "start"],
+      "search_settings": {"patterns": ["search\\s+settings", "settings"], "weight": 1.5}
+    }), true));
+    step vui_export_json("out/vui_session.json");
+    step export_json("out/windows_automation_snapshot.json");
+    step summary();
+  }
+}

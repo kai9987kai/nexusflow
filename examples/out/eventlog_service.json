@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "service": "EventLog",
+  "data": {
+    "Name": "EventLog",
+    "DisplayName": "Windows Event Log",
+    "Status": 4,
+    "StartType": 2,
+    "ServiceType": 48,
+    "CanPauseAndContinue": false,
+    "CanStop": true
+  }
+}

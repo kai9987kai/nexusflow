@@ -1,0 +1,37 @@
+{
+  "asset": {
+    "version": "2.0",
+    "generator": "NexusFlow sample"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "DefaultScene",
+      "nodes": [0]
+    }
+  ],
+  "nodes": [
+    {
+      "name": "DroneRoot",
+      "mesh": 0
+    }
+  ],
+  "meshes": [
+    {
+      "name": "DroneMesh",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0
+          },
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "name": "DroneBody"
+    }
+  ]
+}

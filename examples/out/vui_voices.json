@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "voices": [
+    {
+      "Name": "Microsoft Hazel Desktop",
+      "Culture": "en-GB",
+      "Gender": "Female",
+      "Age": "Adult",
+      "Description": "Microsoft Hazel Desktop - English (Great Britain)"
+    },
+    {
+      "Name": "Microsoft Zira Desktop",
+      "Culture": "en-US",
+      "Gender": "Female",
+      "Age": "Adult",
+      "Description": "Microsoft Zira Desktop - English (United States)"
+    }
+  ]
+}

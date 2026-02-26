@@ -1,0 +1,1549 @@
+{
+  "project": "NPUWorkflowDemo",
+  "config": {},
+  "state": {},
+  "metrics": {
+    "npu_profiles": 1,
+    "npu_providers": 1,
+    "npu_runs": 1,
+    "npu_probes": 1,
+    "npu_plan_device": "cpu",
+    "npu_plan_provider": "cpu_fallback",
+    "npu_bench_real": true,
+    "npu_bench_device": "cpu",
+    "npu_last_train_ok": true,
+    "npu_last_train_device": "cpu"
+  },
+  "tick": 0,
+  "models": {
+    "tiny_npu": {
+      "backend": "npu",
+      "inputs": 4,
+      "hidden": 12,
+      "outputs": 2,
+      "layers": 2,
+      "lr": 0.005
+    }
+  },
+  "datasets": {
+    "tiny_ds": {
+      "samples": 48,
+      "inputs": 4,
+      "outputs": 2,
+      "task": "classification",
+      "batch_size": 8
+    }
+  },
+  "assets3d": {},
+  "scenes3d": {},
+  "web_tools": {},
+  "fusion_runs": {},
+  "protein_runs": {},
+  "channels": {},
+  "agents": {},
+  "agent_summary": {},
+  "events": [
+    {
+      "tick": 0,
+      "event": "npu_profile_set",
+      "profile": "edge_int8"
+    },
+    {
+      "tick": 0,
+      "event": "npu_probe_json",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\npu_probe.json"
+    },
+    {
+      "tick": 0,
+      "event": "npu_plan",
+      "device": "cpu",
+      "provider": "cpu_fallback"
+    },
+    {
+      "tick": 0,
+      "event": "npu_plan_json",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\npu_plan.json"
+    },
+    {
+      "tick": 0,
+      "event": "npu_plan_json",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\npu_plan.json"
+    },
+    {
+      "tick": 0,
+      "event": "npu_plan",
+      "device": "cpu",
+      "provider": "cpu_fallback"
+    },
+    {
+      "tick": 0,
+      "event": "npu_benchmark",
+      "device": "cpu",
+      "real": true
+    },
+    {
+      "tick": 0,
+      "event": "npu_benchmark_json",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\npu_benchmark.json"
+    },
+    {
+      "tick": 0,
+      "event": "npu_benchmark_json",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\npu_benchmark.json"
+    },
+    {
+      "tick": 0,
+      "event": "npu_runtime_export_json",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\npu_runtime.json"
+    },
+    {
+      "tick": 0,
+      "event": "npu_runtime_export_json",
+      "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\npu_runtime.json"
+    },
+    {
+      "tick": 0,
+      "event": "npu_plan",
+      "device": "cpu",
+      "provider": "cpu_fallback"
+    },
+    {
+      "tick": 0,
+      "event": "torch_train:tiny_npu:tiny_ds"
+    },
+    {
+      "tick": 0,
+      "event": "npu_torch_train",
+      "ok": true,
+      "device": "npu"
+    }
+  ],
+  "training_runs": [
+    {
+      "backend": "pytorch",
+      "model": "tiny_npu",
+      "dataset": "tiny_ds",
+      "epochs": 1,
+      "lr": 0.004,
+      "batch_size": 8,
+      "device": "cpu",
+      "device_requested": "npu",
+      "device_used_fallback": true,
+      "device_fallback_reason": "xpu_unavailable",
+      "loss_history": [
+        0.758811
+      ],
+      "final_loss": 0.758811,
+      "duration_ms": 25.66,
+      "tick_at_start": 0
+    }
+  ],
+  "benchmarks": [],
+  "threading": {
+    "simulate_calls": 0,
+    "simulate_mt_calls": 0,
+    "pipeline_parallel_calls": 0,
+    "max_workers_seen": 1,
+    "thread_events": []
+  },
+  "pytorch": {
+    "available": true,
+    "import_error": null,
+    "trained_models": [
+      "tiny_npu"
+    ],
+    "exports": []
+  },
+  "python_ml": {
+    "trained_models": [],
+    "exports": [],
+    "models": {}
+  },
+  "languages": {
+    "modules": {},
+    "runs": []
+  },
+  "windows": {
+    "host": {
+      "is_windows": true,
+      "platform": "Windows-11-10.0.26200-SP0",
+      "system": "Windows",
+      "release": "11",
+      "version": "10.0.26200",
+      "hostname": "Nolans-TechSupp",
+      "cwd": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples"
+    },
+    "ops": []
+  },
+  "vui": {
+    "ops": [],
+    "profiles": {},
+    "voices_cache": null,
+    "transcripts": []
+  },
+  "http": {
+    "ops": [],
+    "auth_presets": {},
+    "mock_servers": {}
+  },
+  "sqlite": {
+    "ops": [],
+    "databases": {}
+  },
+  "archives": {
+    "ops": [],
+    "archives": {}
+  },
+  "resources": {
+    "ops": [],
+    "limits": {
+      "events_max": 500,
+      "http_ops_max": 100,
+      "windows_ops_max": 50,
+      "vui_ops_max": 100,
+      "sqlite_ops_max": 150,
+      "archive_ops_max": 100,
+      "lang_runs_max": 100,
+      "thread_events_max": 50,
+      "resource_ops_max": 120,
+      "process_ops_max": 120,
+      "wifi_ops_max": 80,
+      "npu_probes_max": 30,
+      "photo_ops_max": 80,
+      "graph_ops_max": 120,
+      "convert_ops_max": 120,
+      "iso_ops_max": 40,
+      "exe_ops_max": 80,
+      "github_ops_max": 60,
+      "max_sim_workers": null,
+      "max_pipeline_workers": null
+    }
+  },
+  "processes": {
+    "ops": [],
+    "profiles": {},
+    "managed": {}
+  },
+  "wifi": {
+    "ops": [],
+    "interfaces": [],
+    "profiles": [],
+    "last_scan": null
+  },
+  "npu": {
+    "last_probe": {
+      "host": {
+        "is_windows": true,
+        "platform": "Windows-11-10.0.26200-SP0",
+        "system": "Windows",
+        "release": "11",
+        "version": "10.0.26200",
+        "hostname": "Nolans-TechSupp",
+        "cwd": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples"
+      },
+      "cpu_count": 8,
+      "pytorch_available": true,
+      "torch": {
+        "available": true,
+        "cuda": {
+          "available": false,
+          "count": 0,
+          "devices": []
+        },
+        "mps": {
+          "available": false
+        },
+        "xpu": {
+          "available": false,
+          "count": 0
+        }
+      },
+      "npu": {
+        "available": false,
+        "detected": [],
+        "env_hints": [],
+        "providers": [
+          {
+            "name": "cpu_fallback",
+            "available": true,
+            "source": "fallback"
+          }
+        ]
+      },
+      "recommended_device": "cpu",
+      "deep": false,
+      "probed_at": "2026-02-26T18:38:42.122494+00:00",
+      "time": "2026-02-26T18:38:42.158615+00:00"
+    },
+    "probes": [
+      {
+        "host": {
+          "is_windows": true,
+          "platform": "Windows-11-10.0.26200-SP0",
+          "system": "Windows",
+          "release": "11",
+          "version": "10.0.26200",
+          "hostname": "Nolans-TechSupp",
+          "cwd": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples"
+        },
+        "cpu_count": 8,
+        "pytorch_available": true,
+        "torch": {
+          "available": true,
+          "cuda": {
+            "available": false,
+            "count": 0,
+            "devices": []
+          },
+          "mps": {
+            "available": false
+          },
+          "xpu": {
+            "available": false,
+            "count": 0
+          }
+        },
+        "npu": {
+          "available": false,
+          "detected": [],
+          "env_hints": [],
+          "providers": [
+            {
+              "name": "cpu_fallback",
+              "available": true,
+              "source": "fallback"
+            }
+          ]
+        },
+        "recommended_device": "cpu",
+        "deep": false,
+        "probed_at": "2026-02-26T18:38:42.122494+00:00",
+        "time": "2026-02-26T18:38:42.158615+00:00"
+      }
+    ],
+    "ops": [
+      {
+        "time": "2026-02-26T18:38:42.090782+00:00",
+        "type": "npu_profile_set",
+        "ok": true,
+        "profile": "edge_int8"
+      },
+      {
+        "time": "2026-02-26T18:38:42.191274+00:00",
+        "type": "npu_plan",
+        "ok": true,
+        "name": "edge_int8",
+        "workload": {
+          "name": "tiny_npu",
+          "kind": "model_ref",
+          "model_spec": {
+            "backend": "npu",
+            "inputs": 4,
+            "hidden": 12,
+            "outputs": 2,
+            "layers": 2,
+            "lr": 0.005
+          },
+          "dataset_spec": {
+            "samples": 48,
+            "inputs": 4,
+            "outputs": 2,
+            "task": "classification",
+            "batch_size": 8
+          },
+          "inputs": 4,
+          "outputs": 2,
+          "hidden": 12,
+          "layers": 2,
+          "batch_size": 4,
+          "task": "training",
+          "params_estimate": 216
+        },
+        "profile": "edge_int8",
+        "provider": {
+          "name": "cpu_fallback",
+          "available": true,
+          "source": "fallback"
+        },
+        "providers": [
+          {
+            "name": "cpu_fallback",
+            "available": true,
+            "source": "fallback"
+          }
+        ],
+        "probe_summary": {
+          "recommended_device": "cpu",
+          "npu_available": false,
+          "torch": {
+            "available": true,
+            "cuda": {
+              "available": false,
+              "count": 0,
+              "devices": []
+            },
+            "mps": {
+              "available": false
+            },
+            "xpu": {
+              "available": false,
+              "count": 0
+            }
+          }
+        },
+        "execution_device": "cpu",
+        "logical_device": "npu",
+        "used_fallback": true,
+        "fallback_reason": "npu_unavailable",
+        "fallback_chain": [
+          "cpu",
+          "xpu",
+          "cuda",
+          "mps"
+        ],
+        "precision": "int8",
+        "quantize": true,
+        "optimize_for": "latency",
+        "batch_size": 4,
+        "threads": 8,
+        "estimated_memory_bytes": 312,
+        "estimated_throughput_score": 0.9,
+        "created_at": "2026-02-26T18:38:42.191215+00:00"
+      },
+      {
+        "time": "2026-02-26T18:38:42.222720+00:00",
+        "type": "npu_plan",
+        "ok": true,
+        "name": "edge_int8",
+        "workload": {
+          "name": "tiny_npu",
+          "kind": "model_ref",
+          "model_spec": {
+            "backend": "npu",
+            "inputs": 4,
+            "hidden": 12,
+            "outputs": 2,
+            "layers": 2,
+            "lr": 0.005
+          },
+          "dataset_spec": {},
+          "inputs": 4,
+          "outputs": 2,
+          "hidden": 12,
+          "layers": 2,
+          "batch_size": 4,
+          "task": "inference",
+          "params_estimate": 216
+        },
+        "profile": "edge_int8",
+        "provider": {
+          "name": "cpu_fallback",
+          "available": true,
+          "source": "fallback"
+        },
+        "providers": [
+          {
+            "name": "cpu_fallback",
+            "available": true,
+            "source": "fallback"
+          }
+        ],
+        "probe_summary": {
+          "recommended_device": "cpu",
+          "npu_available": false,
+          "torch": {
+            "available": true,
+            "cuda": {
+              "available": false,
+              "count": 0,
+              "devices": []
+            },
+            "mps": {
+              "available": false
+            },
+            "xpu": {
+              "available": false,
+              "count": 0
+            }
+          }
+        },
+        "execution_device": "cpu",
+        "logical_device": "npu",
+        "used_fallback": true,
+        "fallback_reason": "npu_unavailable",
+        "fallback_chain": [
+          "cpu",
+          "xpu",
+          "cuda",
+          "mps"
+        ],
+        "precision": "int8",
+        "quantize": true,
+        "optimize_for": "latency",
+        "batch_size": 4,
+        "threads": 8,
+        "estimated_memory_bytes": 312,
+        "estimated_throughput_score": 0.9,
+        "created_at": "2026-02-26T18:38:42.222661+00:00"
+      },
+      {
+        "time": "2026-02-26T18:38:42.241868+00:00",
+        "type": "npu_benchmark",
+        "ok": true,
+        "plan": {
+          "ok": true,
+          "name": "edge_int8",
+          "workload": {
+            "name": "tiny_npu",
+            "kind": "model_ref",
+            "model_spec": {
+              "backend": "npu",
+              "inputs": 4,
+              "hidden": 12,
+              "outputs": 2,
+              "layers": 2,
+              "lr": 0.005
+            },
+            "dataset_spec": {},
+            "inputs": 4,
+            "outputs": 2,
+            "hidden": 12,
+            "layers": 2,
+            "batch_size": 4,
+            "task": "inference",
+            "params_estimate": 216
+          },
+          "profile": "edge_int8",
+          "provider": {
+            "name": "cpu_fallback",
+            "available": true,
+            "source": "fallback"
+          },
+          "providers": [
+            {
+              "name": "cpu_fallback",
+              "available": true,
+              "source": "fallback"
+            }
+          ],
+          "probe_summary": {
+            "recommended_device": "cpu",
+            "npu_available": false,
+            "torch": {
+              "available": true,
+              "cuda": {
+                "available": false,
+                "count": 0,
+                "devices": []
+              },
+              "mps": {
+                "available": false
+              },
+              "xpu": {
+                "available": false,
+                "count": 0
+              }
+            }
+          },
+          "execution_device": "cpu",
+          "logical_device": "npu",
+          "used_fallback": true,
+          "fallback_reason": "npu_unavailable",
+          "fallback_chain": [
+            "cpu",
+            "xpu",
+            "cuda",
+            "mps"
+          ],
+          "precision": "int8",
+          "quantize": true,
+          "optimize_for": "latency",
+          "batch_size": 4,
+          "threads": 8,
+          "estimated_memory_bytes": 312,
+          "estimated_throughput_score": 0.9,
+          "created_at": "2026-02-26T18:38:42.222661+00:00"
+        },
+        "iterations": 3,
+        "size": 32,
+        "device": "cpu",
+        "real_run": true,
+        "latency_ms_avg": 0.8463,
+        "throughput_ops_per_s": 77437667.46,
+        "samples": [
+          1.9248,
+          0.4475,
+          0.1667
+        ],
+        "created_at": "2026-02-26T18:38:42.222926+00:00"
+      },
+      {
+        "time": "2026-02-26T18:38:42.282605+00:00",
+        "type": "npu_runtime_export_json",
+        "ok": true,
+        "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples\\out\\npu_runtime.json"
+      },
+      {
+        "time": "2026-02-26T18:38:42.318347+00:00",
+        "type": "npu_plan",
+        "ok": true,
+        "name": "edge_int8",
+        "workload": {
+          "name": "tiny_npu",
+          "kind": "model_ref",
+          "model_spec": {
+            "backend": "npu",
+            "inputs": 4,
+            "hidden": 12,
+            "outputs": 2,
+            "layers": 2,
+            "lr": 0.005
+          },
+          "dataset_spec": {
+            "samples": 48,
+            "inputs": 4,
+            "outputs": 2,
+            "task": "classification",
+            "batch_size": 8
+          },
+          "inputs": 4,
+          "outputs": 2,
+          "hidden": 12,
+          "layers": 2,
+          "batch_size": 4,
+          "task": "training",
+          "params_estimate": 216
+        },
+        "profile": "edge_int8",
+        "provider": {
+          "name": "cpu_fallback",
+          "available": true,
+          "source": "fallback"
+        },
+        "providers": [
+          {
+            "name": "cpu_fallback",
+            "available": true,
+            "source": "fallback"
+          }
+        ],
+        "probe_summary": {
+          "recommended_device": "cpu",
+          "npu_available": false,
+          "torch": {
+            "available": true,
+            "cuda": {
+              "available": false,
+              "count": 0,
+              "devices": []
+            },
+            "mps": {
+              "available": false
+            },
+            "xpu": {
+              "available": false,
+              "count": 0
+            }
+          }
+        },
+        "execution_device": "cpu",
+        "logical_device": "npu",
+        "used_fallback": true,
+        "fallback_reason": "npu_unavailable",
+        "fallback_chain": [
+          "cpu",
+          "xpu",
+          "cuda",
+          "mps"
+        ],
+        "precision": "int8",
+        "quantize": true,
+        "optimize_for": "latency",
+        "batch_size": 4,
+        "threads": 8,
+        "estimated_memory_bytes": 312,
+        "estimated_throughput_score": 0.9,
+        "created_at": "2026-02-26T18:38:42.318280+00:00"
+      },
+      {
+        "time": "2026-02-26T18:38:44.251503+00:00",
+        "type": "npu_torch_train",
+        "ok": true,
+        "model": "tiny_npu",
+        "dataset": "tiny_ds",
+        "epochs": 1,
+        "device_requested": "npu",
+        "plan": {
+          "ok": true,
+          "name": "edge_int8",
+          "workload": {
+            "name": "tiny_npu",
+            "kind": "model_ref",
+            "model_spec": {
+              "backend": "npu",
+              "inputs": 4,
+              "hidden": 12,
+              "outputs": 2,
+              "layers": 2,
+              "lr": 0.005
+            },
+            "dataset_spec": {
+              "samples": 48,
+              "inputs": 4,
+              "outputs": 2,
+              "task": "classification",
+              "batch_size": 8
+            },
+            "inputs": 4,
+            "outputs": 2,
+            "hidden": 12,
+            "layers": 2,
+            "batch_size": 4,
+            "task": "training",
+            "params_estimate": 216
+          },
+          "profile": "edge_int8",
+          "provider": {
+            "name": "cpu_fallback",
+            "available": true,
+            "source": "fallback"
+          },
+          "providers": [
+            {
+              "name": "cpu_fallback",
+              "available": true,
+              "source": "fallback"
+            }
+          ],
+          "probe_summary": {
+            "recommended_device": "cpu",
+            "npu_available": false,
+            "torch": {
+              "available": true,
+              "cuda": {
+                "available": false,
+                "count": 0,
+                "devices": []
+              },
+              "mps": {
+                "available": false
+              },
+              "xpu": {
+                "available": false,
+                "count": 0
+              }
+            }
+          },
+          "execution_device": "cpu",
+          "logical_device": "npu",
+          "used_fallback": true,
+          "fallback_reason": "npu_unavailable",
+          "fallback_chain": [
+            "cpu",
+            "xpu",
+            "cuda",
+            "mps"
+          ],
+          "precision": "int8",
+          "quantize": true,
+          "optimize_for": "latency",
+          "batch_size": 4,
+          "threads": 8,
+          "estimated_memory_bytes": 312,
+          "estimated_throughput_score": 0.9,
+          "created_at": "2026-02-26T18:38:42.318280+00:00"
+        },
+        "used_fallback": true,
+        "backend": "pytorch",
+        "training_run": {
+          "backend": "pytorch",
+          "model": "tiny_npu",
+          "dataset": "tiny_ds",
+          "epochs": 1,
+          "lr": 0.004,
+          "batch_size": 8,
+          "device": "cpu",
+          "device_requested": "npu",
+          "device_used_fallback": true,
+          "device_fallback_reason": "xpu_unavailable",
+          "loss_history": [
+            0.758811
+          ],
+          "final_loss": 0.758811,
+          "duration_ms": 25.66,
+          "tick_at_start": 0
+        }
+      }
+    ],
+    "profiles": {
+      "edge_int8": {
+        "name": "edge_int8",
+        "precision": "int8",
+        "optimize_for": "latency",
+        "preferred_provider": null,
+        "preferred_device": "npu",
+        "batch_size": 4,
+        "quantize": true,
+        "threads": null,
+        "notes": null,
+        "updated_at": "2026-02-26T18:38:42.090719+00:00"
+      }
+    },
+    "plans": [
+      {
+        "time": "2026-02-26T18:38:42.191274+00:00",
+        "type": "npu_plan",
+        "ok": true,
+        "name": "edge_int8",
+        "workload": {
+          "name": "tiny_npu",
+          "kind": "model_ref",
+          "model_spec": {
+            "backend": "npu",
+            "inputs": 4,
+            "hidden": 12,
+            "outputs": 2,
+            "layers": 2,
+            "lr": 0.005
+          },
+          "dataset_spec": {
+            "samples": 48,
+            "inputs": 4,
+            "outputs": 2,
+            "task": "classification",
+            "batch_size": 8
+          },
+          "inputs": 4,
+          "outputs": 2,
+          "hidden": 12,
+          "layers": 2,
+          "batch_size": 4,
+          "task": "training",
+          "params_estimate": 216
+        },
+        "profile": "edge_int8",
+        "provider": {
+          "name": "cpu_fallback",
+          "available": true,
+          "source": "fallback"
+        },
+        "providers": [
+          {
+            "name": "cpu_fallback",
+            "available": true,
+            "source": "fallback"
+          }
+        ],
+        "probe_summary": {
+          "recommended_device": "cpu",
+          "npu_available": false,
+          "torch": {
+            "available": true,
+            "cuda": {
+              "available": false,
+              "count": 0,
+              "devices": []
+            },
+            "mps": {
+              "available": false
+            },
+            "xpu": {
+              "available": false,
+              "count": 0
+            }
+          }
+        },
+        "execution_device": "cpu",
+        "logical_device": "npu",
+        "used_fallback": true,
+        "fallback_reason": "npu_unavailable",
+        "fallback_chain": [
+          "cpu",
+          "xpu",
+          "cuda",
+          "mps"
+        ],
+        "precision": "int8",
+        "quantize": true,
+        "optimize_for": "latency",
+        "batch_size": 4,
+        "threads": 8,
+        "estimated_memory_bytes": 312,
+        "estimated_throughput_score": 0.9,
+        "created_at": "2026-02-26T18:38:42.191215+00:00"
+      },
+      {
+        "time": "2026-02-26T18:38:42.222720+00:00",
+        "type": "npu_plan",
+        "ok": true,
+        "name": "edge_int8",
+        "workload": {
+          "name": "tiny_npu",
+          "kind": "model_ref",
+          "model_spec": {
+            "backend": "npu",
+            "inputs": 4,
+            "hidden": 12,
+            "outputs": 2,
+            "layers": 2,
+            "lr": 0.005
+          },
+          "dataset_spec": {},
+          "inputs": 4,
+          "outputs": 2,
+          "hidden": 12,
+          "layers": 2,
+          "batch_size": 4,
+          "task": "inference",
+          "params_estimate": 216
+        },
+        "profile": "edge_int8",
+        "provider": {
+          "name": "cpu_fallback",
+          "available": true,
+          "source": "fallback"
+        },
+        "providers": [
+          {
+            "name": "cpu_fallback",
+            "available": true,
+            "source": "fallback"
+          }
+        ],
+        "probe_summary": {
+          "recommended_device": "cpu",
+          "npu_available": false,
+          "torch": {
+            "available": true,
+            "cuda": {
+              "available": false,
+              "count": 0,
+              "devices": []
+            },
+            "mps": {
+              "available": false
+            },
+            "xpu": {
+              "available": false,
+              "count": 0
+            }
+          }
+        },
+        "execution_device": "cpu",
+        "logical_device": "npu",
+        "used_fallback": true,
+        "fallback_reason": "npu_unavailable",
+        "fallback_chain": [
+          "cpu",
+          "xpu",
+          "cuda",
+          "mps"
+        ],
+        "precision": "int8",
+        "quantize": true,
+        "optimize_for": "latency",
+        "batch_size": 4,
+        "threads": 8,
+        "estimated_memory_bytes": 312,
+        "estimated_throughput_score": 0.9,
+        "created_at": "2026-02-26T18:38:42.222661+00:00"
+      },
+      {
+        "time": "2026-02-26T18:38:42.318347+00:00",
+        "type": "npu_plan",
+        "ok": true,
+        "name": "edge_int8",
+        "workload": {
+          "name": "tiny_npu",
+          "kind": "model_ref",
+          "model_spec": {
+            "backend": "npu",
+            "inputs": 4,
+            "hidden": 12,
+            "outputs": 2,
+            "layers": 2,
+            "lr": 0.005
+          },
+          "dataset_spec": {
+            "samples": 48,
+            "inputs": 4,
+            "outputs": 2,
+            "task": "classification",
+            "batch_size": 8
+          },
+          "inputs": 4,
+          "outputs": 2,
+          "hidden": 12,
+          "layers": 2,
+          "batch_size": 4,
+          "task": "training",
+          "params_estimate": 216
+        },
+        "profile": "edge_int8",
+        "provider": {
+          "name": "cpu_fallback",
+          "available": true,
+          "source": "fallback"
+        },
+        "providers": [
+          {
+            "name": "cpu_fallback",
+            "available": true,
+            "source": "fallback"
+          }
+        ],
+        "probe_summary": {
+          "recommended_device": "cpu",
+          "npu_available": false,
+          "torch": {
+            "available": true,
+            "cuda": {
+              "available": false,
+              "count": 0,
+              "devices": []
+            },
+            "mps": {
+              "available": false
+            },
+            "xpu": {
+              "available": false,
+              "count": 0
+            }
+          }
+        },
+        "execution_device": "cpu",
+        "logical_device": "npu",
+        "used_fallback": true,
+        "fallback_reason": "npu_unavailable",
+        "fallback_chain": [
+          "cpu",
+          "xpu",
+          "cuda",
+          "mps"
+        ],
+        "precision": "int8",
+        "quantize": true,
+        "optimize_for": "latency",
+        "batch_size": 4,
+        "threads": 8,
+        "estimated_memory_bytes": 312,
+        "estimated_throughput_score": 0.9,
+        "created_at": "2026-02-26T18:38:42.318280+00:00"
+      }
+    ],
+    "runs": [
+      {
+        "time": "2026-02-26T18:38:44.251503+00:00",
+        "type": "npu_torch_train",
+        "ok": true,
+        "model": "tiny_npu",
+        "dataset": "tiny_ds",
+        "epochs": 1,
+        "device_requested": "npu",
+        "plan": {
+          "ok": true,
+          "name": "edge_int8",
+          "workload": {
+            "name": "tiny_npu",
+            "kind": "model_ref",
+            "model_spec": {
+              "backend": "npu",
+              "inputs": 4,
+              "hidden": 12,
+              "outputs": 2,
+              "layers": 2,
+              "lr": 0.005
+            },
+            "dataset_spec": {
+              "samples": 48,
+              "inputs": 4,
+              "outputs": 2,
+              "task": "classification",
+              "batch_size": 8
+            },
+            "inputs": 4,
+            "outputs": 2,
+            "hidden": 12,
+            "layers": 2,
+            "batch_size": 4,
+            "task": "training",
+            "params_estimate": 216
+          },
+          "profile": "edge_int8",
+          "provider": {
+            "name": "cpu_fallback",
+            "available": true,
+            "source": "fallback"
+          },
+          "providers": [
+            {
+              "name": "cpu_fallback",
+              "available": true,
+              "source": "fallback"
+            }
+          ],
+          "probe_summary": {
+            "recommended_device": "cpu",
+            "npu_available": false,
+            "torch": {
+              "available": true,
+              "cuda": {
+                "available": false,
+                "count": 0,
+                "devices": []
+              },
+              "mps": {
+                "available": false
+              },
+              "xpu": {
+                "available": false,
+                "count": 0
+              }
+            }
+          },
+          "execution_device": "cpu",
+          "logical_device": "npu",
+          "used_fallback": true,
+          "fallback_reason": "npu_unavailable",
+          "fallback_chain": [
+            "cpu",
+            "xpu",
+            "cuda",
+            "mps"
+          ],
+          "precision": "int8",
+          "quantize": true,
+          "optimize_for": "latency",
+          "batch_size": 4,
+          "threads": 8,
+          "estimated_memory_bytes": 312,
+          "estimated_throughput_score": 0.9,
+          "created_at": "2026-02-26T18:38:42.318280+00:00"
+        },
+        "used_fallback": true,
+        "backend": "pytorch",
+        "training_run": {
+          "backend": "pytorch",
+          "model": "tiny_npu",
+          "dataset": "tiny_ds",
+          "epochs": 1,
+          "lr": 0.004,
+          "batch_size": 8,
+          "device": "cpu",
+          "device_requested": "npu",
+          "device_used_fallback": true,
+          "device_fallback_reason": "xpu_unavailable",
+          "loss_history": [
+            0.758811
+          ],
+          "final_loss": 0.758811,
+          "duration_ms": 25.66,
+          "tick_at_start": 0
+        }
+      }
+    ],
+    "benchmarks": [
+      {
+        "time": "2026-02-26T18:38:42.241868+00:00",
+        "type": "npu_benchmark",
+        "ok": true,
+        "plan": {
+          "ok": true,
+          "name": "edge_int8",
+          "workload": {
+            "name": "tiny_npu",
+            "kind": "model_ref",
+            "model_spec": {
+              "backend": "npu",
+              "inputs": 4,
+              "hidden": 12,
+              "outputs": 2,
+              "layers": 2,
+              "lr": 0.005
+            },
+            "dataset_spec": {},
+            "inputs": 4,
+            "outputs": 2,
+            "hidden": 12,
+            "layers": 2,
+            "batch_size": 4,
+            "task": "inference",
+            "params_estimate": 216
+          },
+          "profile": "edge_int8",
+          "provider": {
+            "name": "cpu_fallback",
+            "available": true,
+            "source": "fallback"
+          },
+          "providers": [
+            {
+              "name": "cpu_fallback",
+              "available": true,
+              "source": "fallback"
+            }
+          ],
+          "probe_summary": {
+            "recommended_device": "cpu",
+            "npu_available": false,
+            "torch": {
+              "available": true,
+              "cuda": {
+                "available": false,
+                "count": 0,
+                "devices": []
+              },
+              "mps": {
+                "available": false
+              },
+              "xpu": {
+                "available": false,
+                "count": 0
+              }
+            }
+          },
+          "execution_device": "cpu",
+          "logical_device": "npu",
+          "used_fallback": true,
+          "fallback_reason": "npu_unavailable",
+          "fallback_chain": [
+            "cpu",
+            "xpu",
+            "cuda",
+            "mps"
+          ],
+          "precision": "int8",
+          "quantize": true,
+          "optimize_for": "latency",
+          "batch_size": 4,
+          "threads": 8,
+          "estimated_memory_bytes": 312,
+          "estimated_throughput_score": 0.9,
+          "created_at": "2026-02-26T18:38:42.222661+00:00"
+        },
+        "iterations": 3,
+        "size": 32,
+        "device": "cpu",
+        "real_run": true,
+        "latency_ms_avg": 0.8463,
+        "throughput_ops_per_s": 77437667.46,
+        "samples": [
+          1.9248,
+          0.4475,
+          0.1667
+        ],
+        "created_at": "2026-02-26T18:38:42.222926+00:00"
+      }
+    ],
+    "last_plan": {
+      "time": "2026-02-26T18:38:42.318347+00:00",
+      "type": "npu_plan",
+      "ok": true,
+      "name": "edge_int8",
+      "workload": {
+        "name": "tiny_npu",
+        "kind": "model_ref",
+        "model_spec": {
+          "backend": "npu",
+          "inputs": 4,
+          "hidden": 12,
+          "outputs": 2,
+          "layers": 2,
+          "lr": 0.005
+        },
+        "dataset_spec": {
+          "samples": 48,
+          "inputs": 4,
+          "outputs": 2,
+          "task": "classification",
+          "batch_size": 8
+        },
+        "inputs": 4,
+        "outputs": 2,
+        "hidden": 12,
+        "layers": 2,
+        "batch_size": 4,
+        "task": "training",
+        "params_estimate": 216
+      },
+      "profile": "edge_int8",
+      "provider": {
+        "name": "cpu_fallback",
+        "available": true,
+        "source": "fallback"
+      },
+      "providers": [
+        {
+          "name": "cpu_fallback",
+          "available": true,
+          "source": "fallback"
+        }
+      ],
+      "probe_summary": {
+        "recommended_device": "cpu",
+        "npu_available": false,
+        "torch": {
+          "available": true,
+          "cuda": {
+            "available": false,
+            "count": 0,
+            "devices": []
+          },
+          "mps": {
+            "available": false
+          },
+          "xpu": {
+            "available": false,
+            "count": 0
+          }
+        }
+      },
+      "execution_device": "cpu",
+      "logical_device": "npu",
+      "used_fallback": true,
+      "fallback_reason": "npu_unavailable",
+      "fallback_chain": [
+        "cpu",
+        "xpu",
+        "cuda",
+        "mps"
+      ],
+      "precision": "int8",
+      "quantize": true,
+      "optimize_for": "latency",
+      "batch_size": 4,
+      "threads": 8,
+      "estimated_memory_bytes": 312,
+      "estimated_throughput_score": 0.9,
+      "created_at": "2026-02-26T18:38:42.318280+00:00"
+    },
+    "last_run": {
+      "time": "2026-02-26T18:38:44.251503+00:00",
+      "type": "npu_torch_train",
+      "ok": true,
+      "model": "tiny_npu",
+      "dataset": "tiny_ds",
+      "epochs": 1,
+      "device_requested": "npu",
+      "plan": {
+        "ok": true,
+        "name": "edge_int8",
+        "workload": {
+          "name": "tiny_npu",
+          "kind": "model_ref",
+          "model_spec": {
+            "backend": "npu",
+            "inputs": 4,
+            "hidden": 12,
+            "outputs": 2,
+            "layers": 2,
+            "lr": 0.005
+          },
+          "dataset_spec": {
+            "samples": 48,
+            "inputs": 4,
+            "outputs": 2,
+            "task": "classification",
+            "batch_size": 8
+          },
+          "inputs": 4,
+          "outputs": 2,
+          "hidden": 12,
+          "layers": 2,
+          "batch_size": 4,
+          "task": "training",
+          "params_estimate": 216
+        },
+        "profile": "edge_int8",
+        "provider": {
+          "name": "cpu_fallback",
+          "available": true,
+          "source": "fallback"
+        },
+        "providers": [
+          {
+            "name": "cpu_fallback",
+            "available": true,
+            "source": "fallback"
+          }
+        ],
+        "probe_summary": {
+          "recommended_device": "cpu",
+          "npu_available": false,
+          "torch": {
+            "available": true,
+            "cuda": {
+              "available": false,
+              "count": 0,
+              "devices": []
+            },
+            "mps": {
+              "available": false
+            },
+            "xpu": {
+              "available": false,
+              "count": 0
+            }
+          }
+        },
+        "execution_device": "cpu",
+        "logical_device": "npu",
+        "used_fallback": true,
+        "fallback_reason": "npu_unavailable",
+        "fallback_chain": [
+          "cpu",
+          "xpu",
+          "cuda",
+          "mps"
+        ],
+        "precision": "int8",
+        "quantize": true,
+        "optimize_for": "latency",
+        "batch_size": 4,
+        "threads": 8,
+        "estimated_memory_bytes": 312,
+        "estimated_throughput_score": 0.9,
+        "created_at": "2026-02-26T18:38:42.318280+00:00"
+      },
+      "used_fallback": true,
+      "backend": "pytorch",
+      "training_run": {
+        "backend": "pytorch",
+        "model": "tiny_npu",
+        "dataset": "tiny_ds",
+        "epochs": 1,
+        "lr": 0.004,
+        "batch_size": 8,
+        "device": "cpu",
+        "device_requested": "npu",
+        "device_used_fallback": true,
+        "device_fallback_reason": "xpu_unavailable",
+        "loss_history": [
+          0.758811
+        ],
+        "final_loss": 0.758811,
+        "duration_ms": 25.66,
+        "tick_at_start": 0
+      }
+    },
+    "last_benchmark": {
+      "time": "2026-02-26T18:38:42.241868+00:00",
+      "type": "npu_benchmark",
+      "ok": true,
+      "plan": {
+        "ok": true,
+        "name": "edge_int8",
+        "workload": {
+          "name": "tiny_npu",
+          "kind": "model_ref",
+          "model_spec": {
+            "backend": "npu",
+            "inputs": 4,
+            "hidden": 12,
+            "outputs": 2,
+            "layers": 2,
+            "lr": 0.005
+          },
+          "dataset_spec": {},
+          "inputs": 4,
+          "outputs": 2,
+          "hidden": 12,
+          "layers": 2,
+          "batch_size": 4,
+          "task": "inference",
+          "params_estimate": 216
+        },
+        "profile": "edge_int8",
+        "provider": {
+          "name": "cpu_fallback",
+          "available": true,
+          "source": "fallback"
+        },
+        "providers": [
+          {
+            "name": "cpu_fallback",
+            "available": true,
+            "source": "fallback"
+          }
+        ],
+        "probe_summary": {
+          "recommended_device": "cpu",
+          "npu_available": false,
+          "torch": {
+            "available": true,
+            "cuda": {
+              "available": false,
+              "count": 0,
+              "devices": []
+            },
+            "mps": {
+              "available": false
+            },
+            "xpu": {
+              "available": false,
+              "count": 0
+            }
+          }
+        },
+        "execution_device": "cpu",
+        "logical_device": "npu",
+        "used_fallback": true,
+        "fallback_reason": "npu_unavailable",
+        "fallback_chain": [
+          "cpu",
+          "xpu",
+          "cuda",
+          "mps"
+        ],
+        "precision": "int8",
+        "quantize": true,
+        "optimize_for": "latency",
+        "batch_size": 4,
+        "threads": 8,
+        "estimated_memory_bytes": 312,
+        "estimated_throughput_score": 0.9,
+        "created_at": "2026-02-26T18:38:42.222661+00:00"
+      },
+      "iterations": 3,
+      "size": 32,
+      "device": "cpu",
+      "real_run": true,
+      "latency_ms_avg": 0.8463,
+      "throughput_ops_per_s": 77437667.46,
+      "samples": [
+        1.9248,
+        0.4475,
+        0.1667
+      ],
+      "created_at": "2026-02-26T18:38:42.222926+00:00"
+    }
+  },
+  "photos": {
+    "ops": [],
+    "images": {}
+  },
+  "graphs": {
+    "ops": [],
+    "graphs": {}
+  },
+  "conversion": {
+    "ops": []
+  },
+  "iso": {
+    "ops": [],
+    "last": null,
+    "images": {},
+    "tools": {}
+  },
+  "executables": {
+    "ops": [],
+    "last": null,
+    "artifacts": {},
+    "tools": {}
+  },
+  "github_local": {
+    "ops": [],
+    "last_report": null
+  },
+  "unsupported_steps": []
+}

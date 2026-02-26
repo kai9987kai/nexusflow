@@ -1,0 +1,65 @@
+{
+  "ok": true,
+  "services": [
+    {
+      "Name": "AxInstSV",
+      "DisplayName": "ActiveX Installer (AxInstSV)",
+      "Status": 1,
+      "StartType": 3
+    },
+    {
+      "Name": "AarSvc_1558def",
+      "DisplayName": "Agent Activation Runtime_1558def",
+      "Status": 1,
+      "StartType": 3
+    },
+    {
+      "Name": "ADPSvc",
+      "DisplayName": "Aggregated Data Platform Service",
+      "Status": 1,
+      "StartType": 3
+    },
+    {
+      "Name": "AppReadiness",
+      "DisplayName": "App Readiness",
+      "Status": 1,
+      "StartType": 3
+    },
+    {
+      "Name": "AppIDSvc",
+      "DisplayName": "Application Identity",
+      "Status": 1,
+      "StartType": 3
+    },
+    {
+      "Name": "ALG",
+      "DisplayName": "Application Layer Gateway Service",
+      "Status": 1,
+      "StartType": 3
+    },
+    {
+      "Name": "tzautoupdate",
+      "DisplayName": "Auto Time Zone Updater",
+      "Status": 1,
+      "StartType": 4
+    },
+    {
+      "Name": "BITS",
+      "DisplayName": "Background Intelligent Transfer Service",
+      "Status": 1,
+      "StartType": 3
+    },
+    {
+      "Name": "wbengine",
+      "DisplayName": "Block Level Backup Engine Service",
+      "Status": 1,
+      "StartType": 3
+    },
+    {
+      "Name": "autotimesvc",
+      "DisplayName": "Cellular Time",
+      "Status": 1,
+      "StartType": 3
+    }
+  ]
+}

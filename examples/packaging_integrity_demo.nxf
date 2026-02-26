@@ -1,0 +1,26 @@
+project "PackagingIntegrityDemo" {
+  metric alpha_hash = file_hash("workspace_a/alpha.txt");
+  metric alpha_hash_ok = file_hash_verify("workspace_a/alpha.txt", alpha_hash);
+  metric manifest_a_count = get(dir_manifest("workspace_a"), "count", 0);
+  metric diff_changed = get(dir_diff("workspace_a", "workspace_b", {"hash": true}), "changed_count", 0);
+  metric diff_added = get(dir_diff("workspace_a", "workspace_b", {"hash": true}), "added_count", 0);
+  metric archives_total = archive_count();
+  metric archives_ops = archive_op_count();
+
+  pipeline build {
+    step write_text("workspace_a/alpha.txt", "alpha-v1");
+    step write_text("workspace_a/sub/beta.txt", "beta");
+    step write_text("workspace_b/alpha.txt", "alpha-v2");
+    step write_text("workspace_b/sub/beta.txt", "beta");
+    step write_text("workspace_b/new.txt", "new");
+
+    step hash_file_json("workspace_a/alpha.txt", "out/alpha_hash.json");
+    step dir_manifest_json("workspace_a", "out/workspace_a_manifest.json", {"hash": true});
+    step dir_diff_json("workspace_a", "workspace_b", "out/workspace_diff.json", {"hash": true});
+
+    step tar_pack("workspace_a", "out/workspace_a.tar.gz", {"compression": "gz"});
+    step tar_unpack("out/workspace_a.tar.gz", "out/unpacked_workspace_a");
+
+    step export_json("out/packaging_integrity_snapshot.json");
+  }
+}

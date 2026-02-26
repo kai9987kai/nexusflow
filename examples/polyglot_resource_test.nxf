@@ -1,0 +1,58 @@
+project "PolyglotResourceTest" {
+  config seed = 9;
+  config threads = 6;
+  config pipeline_threads = 4;
+
+  state note = "resource-test";
+
+  metric cpu = cpu_count();
+  metric threads_now = thread_count();
+  metric resource_ops = resource_count();
+  metric resource_limit_sim = get(resource_limits(), "max_sim_workers", 0);
+  metric resource_limit_pipe = get(resource_limits(), "max_pipeline_workers", 0);
+  metric csharp_lang = get(lang_module_info("cs_echo"), "language", "");
+  metric csharp_build_ok = get(get(lang_module_info("cs_echo"), "build", {}), "ok", false);
+  metric csharp_run_ok = get(lang_module_last("cs_echo"), "ok", false);
+  metric csharp_run_reason = get(lang_module_last("cs_echo"), "reason", "");
+  metric csharp_tool = to_string(csharp_compiler_info());
+  metric out_files = get(dir_stats("out", true), "files", 0);
+  metric events_seen = count_events();
+
+  agent worker count 4 {
+    field energy = 1;
+    on tick {
+      energy += 1;
+      emit "worker_tick";
+    }
+  }
+
+  pipeline main {
+    step resource_set_limits({
+      "max_sim_workers": 2,
+      "max_pipeline_workers": 2,
+      "events_max": 120,
+      "lang_runs_max": 40,
+      "resource_ops_max": 50
+    });
+    step resource_snapshot("start");
+
+    step cs_module("cs_echo", "modules/csharp_echo.cs");
+    step csharp_build("cs_echo");
+    step csharp_run("cs_echo", ["nexus", "flow", "resource"]);
+
+    step repeat(simulate_mt(2, 8), 2);
+    step parallel(
+      render_template("out/summary.txt", "cpu={{cpu}} events={{events}} csharp={{lang}}", {"cpu": cpu_count(), "events": count_events(), "lang": csharp_lang}),
+      write_text("out/runtime_resource.json", json_stringify(resource_runtime_info("mid"), true)),
+      write_text("out/host_resource.json", json_stringify(resource_host_info("mid"), true))
+    );
+
+    step resource_gc();
+    step resource_trim({"events": 80, "lang_runs": 20});
+    step resource_snapshot("end");
+    step export_resource_json("out/resource_ops.json");
+    step export_json("out/polyglot_resource_snapshot.json");
+    step summary();
+  }
+}
+

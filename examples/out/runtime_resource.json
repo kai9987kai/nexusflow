@@ -1,0 +1,37 @@
+{
+  "time": "2026-02-26T16:37:06.850652+00:00",
+  "label": "mid",
+  "tick": 4,
+  "events": 24,
+  "http_ops": 0,
+  "windows_ops": 0,
+  "sqlite_ops": 0,
+  "archive_ops": 0,
+  "lang_runs": 1,
+  "thread_events": 3,
+  "benchmarks": 0,
+  "training_runs": 0,
+  "web_tools": 0,
+  "assets3d": 0,
+  "scenes3d": 0,
+  "resource_limits": {
+    "events_max": 120,
+    "http_ops_max": 100,
+    "windows_ops_max": 50,
+    "sqlite_ops_max": 150,
+    "archive_ops_max": 100,
+    "lang_runs_max": 40,
+    "thread_events_max": 50,
+    "resource_ops_max": 50,
+    "max_sim_workers": 2,
+    "max_pipeline_workers": 2
+  },
+  "out_dir": {
+    "path": "C:\\Users\\kai99\\Desktop\\New folder (5)\\examples",
+    "exists": true,
+    "is_file": false,
+    "files": 2,
+    "dirs": 3,
+    "bytes": 10267
+  }
+}
